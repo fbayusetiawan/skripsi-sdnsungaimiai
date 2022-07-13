@@ -26,13 +26,13 @@ class dana_m extends CI_Model
         $object = [
             'idDanaMasuk' => uniqid(),
             'idTahunAjaran' => $this->session->userdata('idta'),
-            'jenis' => $this->input->post('jenis'),
+            'jenis' => '2',
             'jumlah' => str_replace('.', '', $this->input->post('jumlah')),
             'keterangan' => $this->input->post('keterangan'),
         ];
         $object2 = [
             'idTahunAjaran' => $this->session->userdata('idta'),
-            'jenisDana' => $this->input->post('jenis'),
+            'jenisDana' => '2',
             'kredit' => str_replace('.', '', $this->input->post('jumlah')),
             'keterangan' => 'Dana Bos Masuk',
         ];
@@ -45,7 +45,7 @@ class dana_m extends CI_Model
     function update($Value)
     {
         $object = [
-            'jenis' => $this->input->post('jenis'),
+            // 'jenis' => $this->input->post('jenis'),
             'jumlah' => str_replace('.', '', $this->input->post('jumlah')),
             'keterangan' => $this->input->post('keterangan'),
         ];

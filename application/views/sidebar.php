@@ -180,9 +180,9 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                                 <li>
                                     <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="<?= base_url('laporan/akuntan') ?>" target="_blank">Akuntan</a>
-                                </li>
+                                </li> -->
                                 <!-- <li>
                                     <a href="#m_nilaisiswa" data-toggle="modal">Data Nilai Siswa</a>
                                 </li> -->

@@ -74,7 +74,7 @@ class jadwalpelajaran extends CI_Controller
         $data['tahun'] = $this->jadwalpelajaran_m->getTahun();
         $data['mapel'] = $this->jadwalpelajaran_m->getMapel();
         $data['kelas'] = $this->jadwalpelajaran_m->getKelas();
-        $data['hari'] = $this->jadwalpelajaran_m->getHari();
+        // $data['hari'] = $this->jadwalpelajaran_m->getHari();
         $data['row'] = $this->jadwalpelajaran_m->getDataById($id);
         $this->template->load('template', $this->vn . '/edit', $data);
     }

@@ -2,17 +2,11 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class register_m extends CI_Model
+class Login_m extends CI_Model
 {
 
-    public $table = "anggota";
+    public $table = "register";
     public $pk = "idRegister";
-
-    public function getByNik($Value)
-    {
-        $this->db->where('nisn', $Value);
-        return $this->db->get('siswa')->row();
-    }
 
     public function getByNisn($Value)
     {
@@ -20,31 +14,25 @@ class register_m extends CI_Model
         return $this->db->get('siswa')->row();
     }
 
-    function getById($Value)
+    public function getByUser($Value)
     {
         $this->db->where('username', $Value);
         return $this->db->get('users')->row();
     }
 
-
     public function insert()
     {
         $object = [
-            'idRegister' => uniqid(),
-            'nis' => $this->input->post('nis', TRUE),
+            'nik' => $this->input->post('nik', TRUE),
             'noWa' => $this->input->post('noWa', TRUE),
             'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
             'time' => time(),
-            'roleId' => '2',
-            'isActive' => '0',
-            'namaLengkap' => $this->input->post('namaLengkap', TRUE),
-            'idJurusan' => $this->input->post('idJurusan', TRUE),
-            'jk' => $this->input->post('jk', TRUE),
-            // 'alamat' => $this->input->post('alamat', TRUE),
+            'roleId' => '3',
+            'isActive' => '0'
         ];
 
         $array = array(
-            'nis' => $this->input->post('nis', TRUE),
+            'nik' => $this->input->post('nik', TRUE),
         );
 
         $this->session->set_userdata($array);

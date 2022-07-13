@@ -33,13 +33,13 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                                     Harus diisi!
                                 </div>
                             </div>
-                            <!-- <div class="form-group mb-3">
+                            <div class="form-group mb-3">
                                 <label for="validationCustom01">Password</label>
                                 <input type="text" class="form-control" name="password" id="validationCustom01" required>
                                 <div class="invalid-feedback">
                                     Harus diisi!
                                 </div>
-                            </div> -->
+                            </div>
                             <div class="form-group mb-3">
                                 <label for="validationCustom01">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="namaSiswa" id="validationCustom01" required>

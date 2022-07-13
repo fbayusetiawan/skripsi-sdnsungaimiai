@@ -17,13 +17,13 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
         <div class="card">
             <div class="card-body">
                 <form class="needs-validation" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" method="post">
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label for="validationCustom01">Jenis Dana</label>
                         <?= form_dropdown('jenis', array('1' => 'Bosda', '2' => 'Bosnas'), $row->jenis, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Jumlah Dana</label>
                         <input type="text" name="jumlah" value="<?= $row->jumlah ?>" class="form-control uang" required>

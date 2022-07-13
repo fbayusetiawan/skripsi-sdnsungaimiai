@@ -99,7 +99,7 @@ class HWalikelas extends CI_Controller
 
     function d_edit()
     {
-        $data['pegawai'] = $this->primaryModel->getAllDataPegawai();
+        $data['guru'] = $this->primaryModel->getAllDataPegawai();
         $data['title'] = $this->titles;
         $data['pageTitle'] = "Tambah Data " . $this->titles;
         $id = $this->uri->segment(4);

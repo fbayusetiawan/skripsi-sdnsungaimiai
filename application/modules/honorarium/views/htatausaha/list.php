@@ -23,8 +23,8 @@ $no = '1';
                             <th>No</th>
                             <th>Tahun Ajaran</th>
                             <th>Tanggal</th>
-                            <th>Dana Bosnas</th>
-                            <th>Dana Bosda</th>
+                            <!-- <th>Dana Bosnas</th>
+                            <th>Dana Bosda</th> -->
                             <th>Total Dana</th>
                             <th>Keterangan</th>
                             <th width="100" class="text-center">Aksi</th>
@@ -41,8 +41,8 @@ $no = '1';
                                 <td><?= $no++ ?></td>
                                 <td><?= $row->tahunAjaran ?></td>
                                 <td><?= tgl_indo($row->tanggal) ?></td>
-                                <td>Rp. <?= number_format(floatval($bd), 0, ',', '.')  ?></td>
-                                <td>Rp. <?= number_format(floatval($bn), 0, ',', '.')  ?></td>
+                                <!-- <td>Rp. <?= number_format(floatval($bd), 0, ',', '.')  ?></td>
+                                <td>Rp. <?= number_format(floatval($bn), 0, ',', '.')  ?></td> -->
                                 <td>Rp. <?= number_format(floatval($bd + $bn), 0, ',', '.')  ?></td>
                                 <td><?= $row->keterangan ?></td>
 

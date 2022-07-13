@@ -21,8 +21,8 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <label for="validationCustom01">Nama Guru</label>
                         <select name="idGuru" required class="form-control">
                             <option value="">Pilih Nama Guru</option>
-                            <?php foreach ($pegawai as $baris) : ?>
-                                <option <?= $row->idGuru == $baris->idGuru ? 'selected' : '' ?> value="<?= $baris->idGuru ?>"><?= $baris->nip . ' - ' . $baris->namaGuru ?></option>
+                            <?php foreach ($guru as $baris) : ?>
+                                <option <?= $row->idGuru == $baris->idGuru ? 'selected' : '' ?> value="<?= $baris->idGuru ?>"><?= $baris->namaGuru . ' - ' . $baris->nip ?></option>
                             <?php endforeach ?>
                         </select>
                         <div class="invalid-feedback">
@@ -37,13 +37,13 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             Harus diisi!
                         </div>
                     </div>
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label for="validationCustom01">Dari Dana</label>
                         <?= form_dropdown('jenisDana', array('1' => 'Bosda', '2' => 'Bosnas'), $row->jenisDana, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
-                    </div>
+                    </div> -->
                     <button class="btn btn-primary" type="submit">Simpan</button>
                     <a href="<?= base_url($linkin . '/detail') ?>" class="btn btn-danger">Kembali</a>
                 </form>

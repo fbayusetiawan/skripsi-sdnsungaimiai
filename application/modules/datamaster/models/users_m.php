@@ -30,7 +30,7 @@ class users_m extends CI_Model
             'username' => $this->input->post('username'),
             'email' => $this->input->post('email'),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'roleId' => '0',
+            'roleId' => '1',
             'isActive' => $this->input->post('isActive'),
             'noWa' => $this->input->post('noWa'),
             'foto' => $foto,

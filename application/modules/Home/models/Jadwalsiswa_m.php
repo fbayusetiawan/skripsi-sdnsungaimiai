@@ -2,7 +2,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class jadwalpelajaran_m extends CI_Model
+class Jadwalsiswa_m extends CI_Model
 {
 
     public $namaTable = 'jadwal_pelajaran';
@@ -10,23 +10,28 @@ class jadwalpelajaran_m extends CI_Model
 
     public function getAllData()
     {
+
+        $this->db->select('jadwal_pelajaran.*, mata_pelajaran.nip as nip, tahun_akademik.namaTahun as namaTahun, kelas.namaKelas as namaKelas, mata_pelajaran.namaMapel as namaMapel, hari.namaHari as namaHari');
+        $this->db->select('mata_pelajaran.*, guru.namaGuru as namaGuru');
+
+        // $this->db->join('mata_pelajaran', 'mata_pelajaran.nip = jadwal_pelajaran.nip', 'left');
+        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = jadwal_pelajaran.kodeJadwal', 'left');
         $this->db->join('kelas', 'kelas.kodeKelas = jadwal_pelajaran.kodeKelas', 'left');
         $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'left');
         $this->db->join('guru', 'guru.nip = mata_pelajaran.nip', 'left');
+        $this->db->join('hari', 'hari.namaHari = jadwal_pelajaran.namaHari', 'left');
+
         return $this->db->get($this->namaTable)->result();
     }
     public function getViia()
     {
-
-
         $sql = "SELECT * from jadwal_pelajaran where kodeKelas='VII.A'";
         return $this->db->query($sql)->result();
     }
 
     public function getTahun()
     {
-        $this->db->where('status', '1');
-        return $this->db->get('tahunajaran')->result();
+        return $this->db->get('tahun_akademik')->result();
     }
     public function getMapel()
     {
@@ -62,7 +67,7 @@ class jadwalpelajaran_m extends CI_Model
         $object = [
 
             'kodeJadwal' => uniqid(),
-            'kodeTahun' => htmlspecialchars($this->input->post('idTahunAjaran', TRUE)),
+            'kodeTahun' => htmlspecialchars($this->input->post('kodeTahun', TRUE)),
             'kodeKelas' => htmlspecialchars($this->input->post('kodeKelas', TRUE)),
             'kodeMapel' => htmlspecialchars($this->input->post('kodeMapel', TRUE)),
             'namaHari' => htmlspecialchars($this->input->post('namaHari', TRUE)),
@@ -79,7 +84,8 @@ class jadwalpelajaran_m extends CI_Model
     {
         $object = [
 
-            'kodeTahun' => htmlspecialchars($this->input->post('idTahunAjaran', TRUE)),
+            'kodeJadwal' => uniqid(),
+            'kodeTahun' => htmlspecialchars($this->input->post('kodeTahun', TRUE)),
             'kodeKelas' => htmlspecialchars($this->input->post('kodeKelas', TRUE)),
             'kodeMapel' => htmlspecialchars($this->input->post('kodeMapel', TRUE)),
             'nip' => htmlspecialchars($this->input->post('nip', TRUE)),

@@ -41,7 +41,8 @@
                                     <h6 class="h5 mb-0 mt-0 text-center">Selamat Datang</h6>
                                     <p class="text-muted mt-1 mb-4 text-center">Masukkan Username dan Kata Sandi untuk mengakses web panel.</p>
 
-                                    <form action="<?= base_url('auth/login/logon') ?>" method="post" class="authentication-form">
+                                    <form action="<?= base_url('auth/login/logonin') ?>" method="post" class="authentication-form">
+                                        <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?= $this->security->get_csrf_hash(); ?>">
                                         <div class="form-group">
                                             <label class="form-control-label">Username</label>
                                             <div class="input-group input-group-merge">
@@ -50,7 +51,7 @@
                                                         <i class="icon-dual" data-feather="mail"></i>
                                                     </span>
                                                 </div>
-                                                <input type="text" name="username" value="" required class="form-control">
+                                                <input type="text" name="nisn" value="" required class="form-control">
                                             </div>
                                         </div>
 

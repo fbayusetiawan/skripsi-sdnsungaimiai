@@ -20,7 +20,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
 
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Tahun Ajaran</label>
-                        <?= cmb_dinamis('kodeTahun', 'tahun_akademik', 'namaTahun', 'kodeTahun', $selected = $row->kodeTahun, '') ?>
+                        <?= cmb_dinamis('idTahunAjaran', 'tahunajaran', 'tahunAjaran', 'idTahunAjaran', '') ?>
                         </select>
                         <div class="invalid-feedback">
                             Harus diisi!
@@ -72,20 +72,6 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             Harus diisi!
                         </div>
                     </div>
-
-                    <!-- <div class="form-group mb-3">
-                        <label for="validationCustom01">Guru Pengampu</label>
-                        <select class="form-control" name="nip">
-                            <option value="">---Pilih Guru Pengampu---</option>
-                            <?php foreach ($data as $row) { ?>
-                                <option value="<?php echo $row->nip; ?>"><?php echo $row->nip; ?> - <?= $row->namaGuru ?> </option>
-                            <?php } ?>
-                        </select>
-                        <div class="invalid-feedback">
-                            Harus diisi!
-                        </div>
-                    </div> -->
-
                     <div class="form-group mb-6">
                         <label for="validationCustom01">Jam Mulai</label>
                         <input class="form-control" id="example-time" type="time" name="jamMulai" value="<?= $row->jamMulai ?>">

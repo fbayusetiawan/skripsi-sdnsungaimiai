@@ -29,7 +29,7 @@ class hpengajar_m extends CI_Model
 
     function getAllDataPegawai()
     {
-        return $this->db->get('pegawai')->result();
+        return $this->db->get('guru')->result();
     }
 
     function getDataById($Value)
@@ -87,7 +87,7 @@ class hpengajar_m extends CI_Model
             'idHonorarium' => $this->session->userdata('idHonorarium'),
             'idGuru' => $this->input->post('idGuru'),
             'honor' => str_replace('.', '', $this->input->post('honor')),
-            'jenisDana' => $this->input->post('jenisDana'),
+            'jenisDana' => '2',
         ];
         $object2 = [
             'idTahunAjaran' => $this->session->userdata('idta'),
@@ -95,7 +95,7 @@ class hpengajar_m extends CI_Model
             'idGuru' => $this->input->post('idGuru'),
             'keterangan' => get_ket('honorarium', 'idHonorarium', $this->session->userdata('idHonorarium')),
             'debit' => str_replace('.', '', $this->input->post('honor')),
-            'jenisDana' => $this->input->post('jenisDana'),
+            'jenisDana' => '2',
         ];
         $this->db->insert('akuntan', $object2);
         $this->db->insert($this->namaTable, $object);
@@ -107,7 +107,7 @@ class hpengajar_m extends CI_Model
         $object = [
             'idGuru' => $this->input->post('idGuru'),
             'honor' => str_replace('.', '', $this->input->post('honor')),
-            'jenisDana' => $this->input->post('jenisDana'),
+            // 'jenisDana' => $this->input->post('jenisDana'),
         ];
         $this->db->where($this->pk, $Value);
         $this->db->update($this->namaTable, $object);

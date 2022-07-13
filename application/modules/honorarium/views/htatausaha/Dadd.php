@@ -37,13 +37,13 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             Harus diisi!
                         </div>
                     </div>
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label for="validationCustom01">Dari Dana</label>
                         <?= form_dropdown('jenisDana', array('1' => 'Bosda', '2' => 'Bosnas'), '', 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
-                    </div>
+                    </div> -->
                     <button class="btn btn-primary" type="submit">Simpan</button>
                     <a href="<?= base_url($linkin . '/detail') ?>" class="btn btn-danger">Kembali</a>
                 </form>
