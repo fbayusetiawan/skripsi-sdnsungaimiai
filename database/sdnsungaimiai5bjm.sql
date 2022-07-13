@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2022 at 04:34 AM
+-- Generation Time: Jul 13, 2022 at 03:27 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `danbo`
+-- Database: `sdnsungaimiai5bjm`
 --
 
 -- --------------------------------------------------------
@@ -34,13 +34,6 @@ CREATE TABLE `absensi_siswa` (
   `kehadiran` varchar(5) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `absensi_siswa`
---
-
-INSERT INTO `absensi_siswa` (`idAbsenSiswa`, `kodeJadwal`, `nisn`, `kehadiran`, `tanggal`) VALUES
-('62bbcb051fb57', '62baf166b0fab', '123456789', 'H', '2022-06-29');
 
 -- --------------------------------------------------------
 
@@ -64,15 +57,10 @@ CREATE TABLE `akuntan` (
 --
 
 INSERT INTO `akuntan` (`idAkuntan`, `idTahunAjaran`, `keterangan`, `kredit`, `debit`, `jenisDana`, `fk`, `idGuru`) VALUES
-(92, 2, 'Dana Bos Masuk', 100000000, 0, 2, '', ''),
-(93, 2, 'Dana Bos Masuk', 50000000, 0, 1, '', ''),
-(94, 2, 'Honor Pengajar', 0, 5000000, 2, '62bbf8e95c15d', '62acc60b61bbb'),
-(95, 2, 'Honor Pengajar', 0, 3000000, 1, '62bbf8e95c15d', '62acd172653c6'),
-(96, 2, 'Honor Wali Kelas', 0, 5000000, 2, '62bbf92cc7d14', '62acc60b61bbb'),
-(97, 2, 'Honor Wali Kelas', 0, 3000000, 1, '62bbf92cc7d14', '62acd172653c6'),
-(98, 2, 'Honor Wali Kelas', 0, 1500000, 2, '62bbf92cc7d14', '62ada1a48e88b'),
-(99, 2, 'Dana Bos Masuk', 50000000, 0, 2, '', ''),
-(100, 2, 'Honor Pengajar', 0, 5000000, 2, '62bd7aa89823a', '62acc60b61bbb');
+(101, 2, 'Dana Bos Masuk', 100000000, 0, 2, '', ''),
+(102, 2, 'Honor Pengajar', 0, 3000000, 2, '62ce4ae65a44a', '62acc4f5ee194'),
+(103, 2, 'Dana Bos Nasional dari Pemerintah', 0, 5000000, 2, '62ce4cb6cbeb3', '62acc60b61bbb'),
+(104, 2, 'Honor TU', 0, 5000000, 2, '62ce4ccddfb34', '62acd172653c6');
 
 -- --------------------------------------------------------
 
@@ -93,9 +81,7 @@ CREATE TABLE `danamasuk` (
 --
 
 INSERT INTO `danamasuk` (`idDanaMasuk`, `idTahunAjaran`, `jenis`, `jumlah`, `keterangan`) VALUES
-('62bbf8d001b31', 2, 2, 100000000, 'Dana Bos Nasional dari Pemerintah'),
-('62bbf8daec5cd', 2, 1, 50000000, 'Dana Bos dari Daerah'),
-('62bd7a893a9f5', 2, 2, 50000000, 'Dana Bos Nasional dari Pemerintah');
+('62ce4ac2ee453', 2, 2, 50000000, 'Dana Bos Nasional dari Pemerintah');
 
 --
 -- Triggers `danamasuk`
@@ -190,8 +176,9 @@ CREATE TABLE `honorarium` (
 --
 
 INSERT INTO `honorarium` (`idHonorarium`, `idTahunAjaran`, `tanggal`, `jenisHonorarium`, `keterangan`) VALUES
-('62bbf8e95c15d', 2, '2022-07-01', 'hpengajar', 'Honor Pengajar'),
-('62bbf92cc7d14', 2, '2022-07-01', 'hwalikelas', 'Honor Wali Kelas');
+('62ce4ae65a44a', 2, '2022-07-01', 'hpengajar', 'Honor Pengajar'),
+('62ce4cb6cbeb3', 2, '2022-07-01', 'hwalikelas', 'Dana Bos Nasional dari Pemerintah'),
+('62ce4ccddfb34', 2, '2022-07-13', 'htatausaha', 'Honor TU');
 
 -- --------------------------------------------------------
 
@@ -212,8 +199,7 @@ CREATE TABLE `h_pengajar` (
 --
 
 INSERT INTO `h_pengajar` (`idPengajar`, `idHonorarium`, `idGuru`, `honor`, `jenisDana`) VALUES
-(23, '62bbf8e95c15d', '62acc60b61bbb', 5000000, 2),
-(24, '62bbf8e95c15d', '62acd172653c6', 3000000, 1);
+(26, '62ce4ae65a44a', '62acc4f5ee194', 3000000, 2);
 
 -- --------------------------------------------------------
 
@@ -228,6 +214,13 @@ CREATE TABLE `h_tatausaha` (
   `honor` int(11) NOT NULL,
   `jenisDana` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `h_tatausaha`
+--
+
+INSERT INTO `h_tatausaha` (`idTataUsaha`, `idHonorarium`, `idGuru`, `honor`, `jenisDana`) VALUES
+(11, '62ce4ccddfb34', '62acd172653c6', 5000000, 2);
 
 -- --------------------------------------------------------
 
@@ -248,9 +241,7 @@ CREATE TABLE `h_walikelas` (
 --
 
 INSERT INTO `h_walikelas` (`idWaliKelas`, `idHonorarium`, `idGuru`, `honor`, `jenisDana`) VALUES
-(11, '62bbf92cc7d14', '62acc60b61bbb', 5000000, 2),
-(12, '62bbf92cc7d14', '62acd172653c6', 3000000, 1),
-(13, '62bbf92cc7d14', '62ada1a48e88b', 1500000, 2);
+(14, '62ce4cb6cbeb3', '62acc60b61bbb', 5000000, 2);
 
 -- --------------------------------------------------------
 
@@ -274,9 +265,10 @@ CREATE TABLE `jadwal_pelajaran` (
 --
 
 INSERT INTO `jadwal_pelajaran` (`kodeJadwal`, `kodeTahun`, `kodeKelas`, `kodeMapel`, `nip`, `jamMulai`, `jamSelesai`, `namaHari`) VALUES
-('62baf166b0fab', '2', 'I.A', 'MP01', '', '08:00:00', '10:00:00', 'Senin'),
-('62baf4d3c7c59', '2', 'I.B', 'MP01', '', '08:00:00', '10:00:00', '2'),
-('62baf52278972', '2', 'I.A', 'MP02', '', '08:00:00', '10:00:00', 'Selasa');
+('62baf166b0fab', '10', 'I.A', 'MP01', '', '08:00:00', '10:00:00', 'Senin'),
+('62baf52278972', '10', 'I.A', 'MP02', '', '08:00:00', '10:00:00', 'Selasa'),
+('62cea34d9adbe', '1', 'I.B', 'MP01', '', '08:00:00', '12:00:00', 'Senin'),
+('62cea3a8541c6', '10', 'I.B', 'MP01', '', '08:00:00', '12:00:00', 'Senin');
 
 -- --------------------------------------------------------
 
@@ -387,9 +379,7 @@ CREATE TABLE `neraca` (
 --
 
 INSERT INTO `neraca` (`idNeraca`, `idTamu`, `tanggal`, `keterangan`, `debit`, `kredit`) VALUES
-(16, '62bbf8d001b31', '0000-00-00', 'Dana Bos Nasional dari Pemerintah', 0, 100000000),
-(17, '62bbf8daec5cd', '0000-00-00', 'Dana Bos dari Daerah', 0, 50000000),
-(18, '62bd7a893a9f5', '0000-00-00', 'Dana Bos Nasional dari Pemerintah', 0, 50000000);
+(20, '62ce4ac2ee453', '0000-00-00', 'Dana Bos Nasional dari Pemerintah', 0, 50000000);
 
 -- --------------------------------------------------------
 
@@ -409,13 +399,6 @@ CREATE TABLE `nilai_keterampilan` (
   `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `nilai_keterampilan`
---
-
-INSERT INTO `nilai_keterampilan` (`idNilaiKeterampilan`, `kodeTahun`, `kodeJadwal`, `nisn`, `nilaiuh`, `nilaiuts`, `nilaiuas`, `rerata`, `deskripsi`) VALUES
-('62c06c6d32cdc', '1', '62baf166b0fab', '123456789', 80, 80, 80, 80, 'Baik, Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan\r\nsebagian besar soal cerita.');
-
 -- --------------------------------------------------------
 
 --
@@ -433,13 +416,6 @@ CREATE TABLE `nilai_pengetahuan` (
   `rerata` float NOT NULL,
   `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `nilai_pengetahuan`
---
-
-INSERT INTO `nilai_pengetahuan` (`idNilaiPengetahuan`, `kodeTahun`, `kodeJadwal`, `nisn`, `nilaiuh`, `nilaiuts`, `nilaiuas`, `rerata`, `deskripsi`) VALUES
-('62c06b794e3cf', '1', '62baf166b0fab', '123456789', 80, 80, 80, 80, 'Baik. Dapat mengingat, mengetahui, menerapkan, menganalis sebagian besar\nkompetensi dasar tetapi kurang bisa mengevaluasi dua kompetensi dasar');
 
 -- --------------------------------------------------------
 
@@ -492,7 +468,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`idSiswa`, `nisn`, `nis`, `password`, `namaSiswa`, `jk`, `tempatLahir`, `tanggalLahir`, `statusKeluarga`, `anakKe`, `agama`, `alamat`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kabupaten`, `noTelp`, `foto`, `asalTk`, `namaAyah`, `pekerjaanAyah`, `alamatAyah`, `noHpAyah`, `namaIbu`, `pekerjaanIbu`, `alamatIbu`, `noHpIbu`, `namaWali`, `alamatWali`, `noHpWali`, `angkatan`, `kodeKelas`, `roleId`, `isActive`, `dateCreated`, `validate`) VALUES
-('62ade1b3b5cb0', '123456789', '1001100001', '$2y$10$RXkHrLshPbGsxg/Sq3u7G.wpvFM40FRkNmURlPq35zQX63heWYWyi', 'Tony Stark', 'L', 'Tanjung', '2006-06-16', 'Anak Kandung', '1', 'Islam', 'Jl. Handil Bakti Raya Pesona Indah', '09', '01', 'Melati', 'Banjarmasin Tengah', 'Banjarmasin', '081251898990', '279860932_407170168081950_6545682480426208850_n.jpg', 'Tadika Mesra', 'Abah', 'Pegawai Swasta', 'Jl Bakti Utama No 10', '085156362232', 'Mama', 'Ibu Rumah Tangga', 'Jl Bakti Utama No 10', '081237412632', 'Abah', 'Jl Bakti Utama No 10', '085156362232', '2021', 'I.A', 3, 1, 1655562675, 0);
+('62ce5c7ee4a0d', '12345', '12345', '$2y$10$ioZ/YjBH6PgP3EkzU.glr.roeVCSP77lT9Hlru2QOVUGbDI2N0VKa', 'Uchiha Yamato', 'L', 'Banjarmasin', '1998-07-20', 'Anak Kandung', '1', 'Islam', 'Jl. in aja dulu, siapa tau betah', '08', '01', 'Melati', 'Barito Kuala', 'Banjarmasin Timur', '081251898990', '279860932_407170168081950_6545682480426208850_n.jpg', 'Tadika Mesra', 'Abah', 'Pegawai Swasta', 'Jl Bakti Utama No 10', '085156362232', 'Mama', 'Ibu Rumah Tangga', 'Jl Bakti Utama No 10', '081237412632', 'Abah', 'Jl Bakti Utama No 10', '085156362232', '2021', 'I.B', 3, 1, 1657691263, 0);
 
 -- --------------------------------------------------------
 
@@ -538,7 +514,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUsers`, `username`, `password`, `roleId`, `namaLengkap`, `email`, `noWa`, `isActive`, `foto`) VALUES
-('5f269419c1055', 'admin', '$2y$10$yGds8D96c7Ce/arpaA02SOz9Emj1zJoSEOPPHiO85KQhu3dLIZruq', 0, 'Shinta Permatasari', 'shintapermatasari@gmail.com', '081223231212', 1, '');
+('5f269419c1055', 'admin', '$2y$10$yGds8D96c7Ce/arpaA02SOz9Emj1zJoSEOPPHiO85KQhu3dLIZruq', 1, 'Shinta Permatasari', 'shintapermatasari@gmail.com', '081223231212', 1, '');
 
 --
 -- Indexes for dumped tables
@@ -675,25 +651,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `akuntan`
 --
 ALTER TABLE `akuntan`
-  MODIFY `idAkuntan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `idAkuntan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `h_pengajar`
 --
 ALTER TABLE `h_pengajar`
-  MODIFY `idPengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `idPengajar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `h_tatausaha`
 --
 ALTER TABLE `h_tatausaha`
-  MODIFY `idTataUsaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idTataUsaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `h_walikelas`
 --
 ALTER TABLE `h_walikelas`
-  MODIFY `idWaliKelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idWaliKelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `jenis_ptk`
@@ -711,7 +687,7 @@ ALTER TABLE `kelompok_mapel`
 -- AUTO_INCREMENT for table `neraca`
 --
 ALTER TABLE `neraca`
-  MODIFY `idNeraca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idNeraca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tahunajaran`
