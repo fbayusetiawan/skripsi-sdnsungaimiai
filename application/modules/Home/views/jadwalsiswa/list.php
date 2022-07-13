@@ -9,7 +9,7 @@ $no = '1';
         <div class="card">
             <div class="card-body">
                 <div class="text-center mt-3">
-                    <img src="<?= base_url() ?>assets/images/profil/<?= $row->foto ?>" alt="" class="avatar-lg rounded-circle" />
+                    <img src="<?= base_url() ?>upload/<?= $row->foto ?>" alt="" class="avatar-lg rounded-circle" />
                     <h5 class="mt-2 mb-0"><?= $row->namaSiswa ?></h5>
                     <h6 class="text-muted font-weight-normal mt-2 mb-0">NISN: <?= $row->nisn ?>
                     </h6>
@@ -52,26 +52,6 @@ $no = '1';
                             Jadwal Pelajaran
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" id="pills-messages-tab" data-toggle="pill" href="#pills-messages" role="tab" aria-controls="pills-messages" aria-selected="false">
-                            Data Diri
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-projects-tab" data-toggle="pill" href="#pills-projects" role="tab" aria-controls="pills-projects" aria-selected="false">
-                            Data Orang Tua
-                        </a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" id="pills-tasks-tab" data-toggle="pill" href="#pills-tasks" role="tab" aria-controls="pills-tasks" aria-selected="false">
-                            Tasks
-                        </a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" id="pills-files-tab" data-toggle="pill" href="#pills-files" role="tab" aria-controls="pills-files" aria-selected="false">
-                            Files
-                        </a>
-                    </li> -->
                 </ul>
 
                 <div class="tab-content" id="pills-tabContent">
@@ -79,7 +59,7 @@ $no = '1';
                         <form action="" class="row g-4">
                             <div class="col-md-6 mt-3">
                                 <label for="">Pilih Tahun Akademik :</label>
-                                <?= cmb_dinamis('tahun_akademik', 'tahun_akademik', 'namaTahun', 'kodeTahun', '', 'onchange="getJadwalPerhari()" id="tahun_akademik"') ?>
+                                <?= cmb_dinamis('tahunajaran', 'tahunajaran', 'tahunAjaran', 'idTahunAjaran', '', 'onchange="getJadwalPerhari()" id="tahunajaran"') ?>
                             </div>
                             <div class="col-md-6 mt-3">
                                 <label for="">Pilih Kelas Anda :</label>
@@ -95,145 +75,12 @@ $no = '1';
 
                     <!-- messages -->
                     <div class="tab-pane" id="pills-messages" role="tabpanel" aria-labelledby="pills-messages-tab">
-                        <!-- <form class="row g-4">
-
-                            <div class="col-md-3 mt-3">
-                                <label for="inputAddress" class="form-label">NISN</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->nisn ?>" disabled>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                                <label for="inputAddress" class="form-label">NIS</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->nisn ?> / <?= $row->nis ?> " disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->namaSiswa ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">Tempat Lahir</label>
-                                <input type="text" class="form-control" id="inputEmail4" value="<?= $row->tempatLahir ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">Tanggal Lahir</label>
-                                <input type="text" class="form-control" id="inputEmail4" value="<?= tgl_indo($row->tanggalLahir) ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">Status Keluarga</label>
-                                <input type="text" class="form-control" id="inputEmail4" value="<?= $row->statusKeluarga ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">Anak Ke</label>
-                                <input type="text" class="form-control" id="inputEmail4" value="<?= $row->anakKe ?>" disabled>
-                            </div>
-
-                            <div class="col-md-6 mt-3">
-                                <label for="inputCity" class="form-label">Jenis Kelamin</label>
-                                <input type="text" class="form-control" id="inputCity" value="<?= $row->jk == 'L' ? 'Laki-Laki' : 'Perempuan' ?>" disabled>
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <label for="inputCity" class="form-label">Alamat</label>
-                                <input type="text" class="form-control" id="inputCity" value="<?= $row->alamat ?>" disabled>
-                            </div>
-
-                            <div class="col-md-1 mt-3">
-                                <label for="inputZip" class="form-label">RT</label>
-                                <input type="text" class="form-control" id="inputZip" value="<?= $row->rt ?>" disabled>
-                            </div>
-                            <div class="col-md-1 mt-3">
-                                <label for="inputZip" class="form-label">RW</label>
-                                <input type="text" class="form-control" id="inputZip" value="<?= $row->rw ?>" disabled>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                                <label for="inputCity" class="form-label">Kelurahan</label>
-                                <input type="text" class="form-control" id="inputCity" value="<?= $row->kelurahan ?>" disabled>
-                            </div>
-                            <div class="col-md-3 mt-3">
-                                <label for="inputCity" class="form-label">Kecamatan</label>
-                                <input type="text" class="form-control" id="inputCity" value="<?= $row->kecamatan ?>" disabled>
-                            </div>
-                            <div class="col-md mt-3">
-                                <label for="inputCity" class="form-label">Kabupaten</label>
-                                <input type="text" class="form-control" id="inputCity" value="<?= $row->kabupaten ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">Agama</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->agama ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">Angkatan</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->angkatan ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">No. Telepon</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->noTelp ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">Asal SD</label>
-                                <input type="text" class="form-control" id="inputAddress" value="<?= $row->asalSd ?>" disabled>
-                            </div>
-
-
-                        </form> -->
-
-
-                        <!-- <div class="text-center">
-                            <a href="#" class="btn btn-primary btn-sm">Load more</a>
-                        </div> -->
+                        
                     </div>
 
                     <div class="tab-pane fade" id="pills-projects" role="tabpanel" aria-labelledby="pills-projects-tab">
 
-                        <!-- <form class="row g-4">
-
-                            <div class="col-md-6 mt-3 ">
-                                <label for="inputNama" class="form-label">Nama Ayah</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->namaAyah ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputPekerjaan" class="form-label">Pekerjaan Ayah</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->pekerjaanAyah ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">Alamat Ayah</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->alamatAyah ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">No. Telepon Ayah</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->noHpAyah ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3 pt-2 border-top">
-                                <label for="inputNama" class="form-label">Nama Ibu</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->namaIbu ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputPekerjaan" class="form-label">Pekerjaan Ibu</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->pekerjaanIbu ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">Alamat Ibu</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->alamatIbu ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">No. Telepon Ibu</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->noHpIbu ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3 pt-2 border-top">
-                                <label for="inputNama" class="form-label">Nama Wali</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->namaWali ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3 pt-2 border-top">
-                                <label for="inputPekerjaan" class="form-label">Alamat Wali</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->alamatWali ?>" disabled>
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label for="inputEmail4" class="form-label">No. Telepon Wali</label>
-                                <input type="text" class="form-control" id="" value="<?= $row->noHpWali ?>" disabled>
-                            </div>
-
-
-
-
-                        </form> -->
+                        
 
 
                         <!-- end row -->
@@ -260,13 +107,13 @@ $no = '1';
 <!-- end row -->
 <script>
     function getJadwalPerhari() {
-        var tahun_akademik = $("#tahun_akademik").val()
+        var tahunajaran = $("#tahunajaran").val()
         var kelas = $("#kelas").val()
-        // console.log(tahun_akademik)
+        // console.log(tahunajaran)
         $.ajax({
             type: 'Get',
             url: '<?= base_url("Home/jadwalsiswa/getJadwalPerhari") ?>',
-            data: 'kelas=' + kelas + '&tahun_akademik=' + tahun_akademik,
+            data: 'kelas=' + kelas + '&tahunajaran=' + tahunajaran,
             success: function(data) {
                 $('#listdata').html(data)
             }

@@ -25,7 +25,7 @@ class jadwalpelajaran_m extends CI_Model
 
     public function getTahun()
     {
-        $this->db->where('status', '1');
+        // $this->db->where('status', '1');
         return $this->db->get('tahunajaran')->result();
     }
     public function getMapel()
@@ -62,7 +62,7 @@ class jadwalpelajaran_m extends CI_Model
         $object = [
 
             'kodeJadwal' => uniqid(),
-            'kodeTahun' => htmlspecialchars($this->input->post('idTahunAjaran', TRUE)),
+            'kodeTahun' => htmlspecialchars($this->input->post('kodeTahun', TRUE)),
             'kodeKelas' => htmlspecialchars($this->input->post('kodeKelas', TRUE)),
             'kodeMapel' => htmlspecialchars($this->input->post('kodeMapel', TRUE)),
             'namaHari' => htmlspecialchars($this->input->post('namaHari', TRUE)),
@@ -79,7 +79,7 @@ class jadwalpelajaran_m extends CI_Model
     {
         $object = [
 
-            'kodeTahun' => htmlspecialchars($this->input->post('idTahunAjaran', TRUE)),
+            'kodeTahun' => htmlspecialchars($this->input->post('kodeTahun', TRUE)),
             'kodeKelas' => htmlspecialchars($this->input->post('kodeKelas', TRUE)),
             'kodeMapel' => htmlspecialchars($this->input->post('kodeMapel', TRUE)),
             'nip' => htmlspecialchars($this->input->post('nip', TRUE)),

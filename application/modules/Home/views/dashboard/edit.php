@@ -8,7 +8,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
         <div class="card">
             <div class="card-body">
                 <div class="text-center mt-3">
-                    <img src="<?= base_url(); ?>assets/images/profil/<?= $row->foto ?>" alt="" class="avatar-lg rounded-circle" />
+                    <img src="<?= base_url(); ?>upload/<?= $row->foto ?>" alt="" class="avatar-lg rounded-circle" />
                     <h5 class="mt-2 mb-0"><?= $row->namaSiswa ?></h5>
                     <h6 class="text-muted font-weight-normal mt-2 mb-0">NISN : <?= $row->nisn ?>
                     </h6>
@@ -201,8 +201,8 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                                 <input type="text" class="form-control" id="inputAddress" name="noTelp" value="<?= $row->noTelp ?>">
                             </div>
                             <div class="col-md-6 mt-3">
-                                <label for="inputAddress" class="form-label">Asal SD</label>
-                                <input type="text" class="form-control" name="asalSd" id="inputAddress" value="<?= $row->asalSd ?>">
+                                <label for="inputAddress" class="form-label">Asal TK</label>
+                                <input type="text" class="form-control" name="asalTk" id="inputAddress" value="<?= $row->asalTk ?>">
                             </div>
 
 

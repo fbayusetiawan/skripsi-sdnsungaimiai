@@ -11,15 +11,15 @@ class Nilairaporsiswa_m extends CI_Model
     public function getAllData()
     {
 
-        $this->db->select('jadwal_pelajaran.*, mata_pelajaran.nip as nip, tahun_akademik.namaTahun as namaTahun, kelas.namaKelas as namaKelas, mata_pelajaran.namaMapel as namaMapel, hari.namaHari as namaHari');
+        $this->db->select('jadwal_pelajaran.*, mata_pelajaran.nip as nip, tahunajaran.tahunAjaran as tahunAjaran, kelas.namaKelas as namaKelas, mata_pelajaran.namaMapel as namaMapel');
         $this->db->select('mata_pelajaran.*, guru.namaGuru as namaGuru');
 
         // $this->db->join('mata_pelajaran', 'mata_pelajaran.nip = jadwal_pelajaran.nip', 'left');
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = jadwal_pelajaran.kodeJadwal', 'left');
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = jadwal_pelajaran.kodeJadwal', 'left');
         $this->db->join('kelas', 'kelas.kodeKelas = jadwal_pelajaran.kodeKelas', 'left');
         $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'left');
         $this->db->join('guru', 'guru.nip = mata_pelajaran.nip', 'left');
-        $this->db->join('hari', 'hari.namaHari = jadwal_pelajaran.namaHari', 'left');
+        // $this->db->join('hari', 'hari.namaHari = jadwal_pelajaran.namaHari', 'left');
 
         return $this->db->get($this->namaTable)->result();
     }
@@ -41,7 +41,7 @@ class Nilairaporsiswa_m extends CI_Model
 
     public function getTahun()
     {
-        return $this->db->get('tahun_akademik')->result();
+        return $this->db->get('tahunajaran')->result();
     }
     public function getMapel()
     {

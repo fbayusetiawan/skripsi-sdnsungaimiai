@@ -47,11 +47,11 @@ class Jadwalsiswa extends CI_Controller
 
     function getJadwalPerhari()
     {
-        $tahun_akademik = $_GET['tahun_akademik'];
+        $tahunajaran = $_GET['tahunajaran'];
         $kelas = $_GET['kelas'];
-        $this->db->where('jadwal_pelajaran.kodeTahun', $tahun_akademik);
+        $this->db->where('jadwal_pelajaran.kodeTahun', $tahunajaran);
         $this->db->where('jadwal_pelajaran.kodeKelas', $kelas);
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = jadwal_pelajaran.kodeTahun', 'left');
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = jadwal_pelajaran.kodeTahun', 'left');
 
         $this->db->join('kelas', 'kelas.kodeKelas = jadwal_pelajaran.kodeKelas', 'left');
         $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'left');

@@ -154,31 +154,21 @@ class Nilairaporsiswa extends CI_Controller
             echo '</table>';
         endif;
     }
+
     function getNilaiRerata()
     {
-        $tahun_akademik3 = $_GET['tahun_akademik3'];
+        $tahunajaran3 = $_GET['tahunajaran3'];
         // $kelas3 = $_GET['kelas3'];
         $this->db->where('nilai_pengetahuan.nisn', $this->session->userdata('nisn'));
-        $this->db->where('nilai_pengetahuan.kodeTahun', $tahun_akademik3);
-        // $this->db->where('nilai_pengetahuan.kodeKelas', $kelas3);
-        // $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = jadwal_pelajaran.kodeTahun', 'left');
-
-        // $this->db->join('kelas', 'kelas.kodeKelas = jadwal_pelajaran.kodeKelas', 'left');
-        // $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'left');
-        // $this->db->join('guru', 'guru.nip = mata_pelajaran.nip', 'left');
-        // $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_pengetahuan.kodeJadwal', 'left');
-
+        $this->db->where('nilai_pengetahuan.kodeTahun', $tahunajaran3);
+        
         $this->db->join('siswa', 'siswa.nisn = nilai_pengetahuan.nisn', 'left');
 
-        // $this->db->select('*');
-        // $this->db->from('nilai_pengetahuan');
         $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_pengetahuan.kodeJadwal ', 'LEFT');
         $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'LEFT');
-        // $data = $this->db->get();
-        // return $data;
 
         $data = $this->db->get('nilai_pengetahuan')->result();
-        if (empty($tahun_akademik3)) :
+        if (empty($tahunajaran3)) :
             echo '<h3 class="text-center"> Silahkan Pilih Tahun Akademik Terlebih Dahulu </h3>';
         else :
             echo '<table id="basic-datatable" class="table dt-responsive nowrap mt-3">';
@@ -191,6 +181,7 @@ class Nilairaporsiswa extends CI_Controller
             <th>Ulangan Tengah Semester</th>
             <th>Ulangan Akhir Semester</th>
             <th>Nilai Rata-Rata</th>
+            <th>Deskripsi</th>
         </tr>
     </thead>';
             echo '<tbody>';
@@ -204,6 +195,56 @@ class Nilairaporsiswa extends CI_Controller
             <td> ' . $row->nilaiuts . ' </td>
             <td> ' . $row->nilaiuas . ' </td>
             <td> ' . $row->rerata . ' </td>
+            <td> ' . $row->deskripsi . ' </td>
+            
+
+        </tr>';
+            endforeach;
+            echo '</tbody>';
+            echo '</table>';
+        endif;
+    }
+
+    function getKeterampilan()
+    {
+        $tahunajaran4 = $_GET['tahunajaran4'];
+        // $kelas4 = $_GET['kelas4'];
+        $this->db->where('nilai_keterampilan.nisn', $this->session->userdata('nisn'));
+        $this->db->where('nilai_keterampilan.kodeTahun', $tahunajaran4);
+
+        $this->db->join('siswa', 'siswa.nisn = nilai_keterampilan.nisn', 'left');
+        $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_keterampilan.kodeJadwal ', 'LEFT');
+        $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'LEFT');
+
+        $data = $this->db->get('nilai_keterampilan')->result();
+        if (empty($tahunajaran4)) :
+            echo '<h3 class="text-center"> Silahkan Pilih Tahun Akademik Terlebih Dahulu </h3>';
+        else :
+            echo '<table id="basic-datatable" class="table dt-responsive nowrap mt-3">';
+            echo '<thead>
+            <tr>
+            <th>No</th>
+            <th>Nama Siswa</th>
+            <th>Nama Mapel</th>
+            <th>Ulangan Harian</th>
+            <th>Ulangan Tengah Semester</th>
+            <th>Ulangan Akhir Semester</th>
+            <th>Nilai Rata-Rata</th>
+            <th>Deskripsi</th>
+        </tr>
+    </thead>';
+            echo '<tbody>';
+            $no = '1';
+            foreach ($data as $row) :
+                echo '<tr>
+            <td> ' . $no++ . ' </td>
+            <td> ' . $row->namaSiswa . ' </td>
+            <td> ' . $row->namaMapel . ' </td>
+            <td> ' . $row->nilaiuh . ' </td>
+            <td> ' . $row->nilaiuts . ' </td>
+            <td> ' . $row->nilaiuas . ' </td>
+            <td> ' . $row->rerata . ' </td>
+            <td> ' . $row->deskripsi . ' </td>
             
 
         </tr>';

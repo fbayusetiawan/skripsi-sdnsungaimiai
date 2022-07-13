@@ -65,7 +65,7 @@ class Login extends CI_Controller
         if (!empty($this->Login_m->getByNisn($nisn))) :
             $user = $this->Login_m->getByNisn($nisn);
         else :
-            $user = $this->Login_m->getByUser($nis);
+            $user = $this->Login_m->getByUser($nisn);
         endif;
         if ($user) :
             if ($user->isActive == 1) :
