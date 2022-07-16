@@ -29,7 +29,7 @@ ob_start();
     </p>
     <h4>
         <center>
-            <u>DATA REKAP ABSENSI SISWA KELAS <?= $kode1 ?></u><br>
+            <u>DATA REKAP ABSENSI SISWA</u><br>
         </center>
     </h4>
     <div class="row">
@@ -85,14 +85,7 @@ ob_start();
                                 <td>
                                     <center> <?= getKehadiranWhere($kode, $row->nisn, 'A') ?></center>
                                 </td>
-                                <!-- <td><select style="width: 100px;" class="form-control" name="kehadiran">
-                                            <option value="H">Hadir</option>
-                                            <option value="I">Izin</option>
-                                            <option value="S">Sakit</option>
-                                            <option value="A">Alpa</option>
-                                        </select></td> -->
-
-
+                               
                             </tr>
                         <?php endforeach ?>
                     </tbody>
