@@ -176,6 +176,14 @@ class Laporan extends CI_Controller
         $data['data'] = json_encode($this->db->query("SELECT keterangan, SUM(debit) as pengeluaran FROM `akuntan` WHERE debit != '0' GROUP BY fk")->result());
         $this->load->view('laporan/grafik', $data);
     }
+
+    function jadwalpelajaran()
+    {
+        $kelas = $this->input->post('kelas');
+        $tahunajaran = $this->input->post('tahunajaran');
+        $data['data'] = $this->primaryModel->getjadwalpelajaran($kelas, $tahunajaran);
+        $this->load->view('laporan/jadwalpelajaran', $data);
+    }
 }
 
 /* End of file Laporan.php */

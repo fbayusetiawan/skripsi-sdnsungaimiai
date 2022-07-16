@@ -72,12 +72,6 @@ $kode = $this->uri->segment(4);
                                     <td>
                                         <center> <?= getKehadiranWhere($kode, $row->nisn, 'A') ?></center>
                                     </td>
-                                    <!-- <td><select style="width: 100px;" class="form-control" name="kehadiran">
-                                            <option value="H">Hadir</option>
-                                            <option value="I">Izin</option>
-                                            <option value="S">Sakit</option>
-                                            <option value="A">Alpa</option>
-                                        </select></td> -->
                                     <td></td>
 
                                 </tr>

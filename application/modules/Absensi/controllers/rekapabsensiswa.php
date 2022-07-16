@@ -47,9 +47,16 @@ class rekapabsensiswa extends CI_Controller
         $this->template->load('template', $this->vn . '/detail', $data);
     }
 
+    function cetak()
+    {
+        $id = $this->uri->segment(4);
+        $data['data'] = $this->rekapabsensiswa_m->getSiswa($id);
+        $data['guru'] = $this->rekapabsensiswa_m->getGuru();
+        $this->load->view($this->vn . '/cetak', $data);
+    }
+
     function addAction()
     {
-
         $this->rekapabsensiswa_m->ok();
         redirect('absensi/' . $this->vn);
     }
@@ -132,7 +139,7 @@ class rekapabsensiswa extends CI_Controller
             <td>
                 <div class="btn-group mb-0">
                 <a href=" rekapabsensiswa/detail/' . $row->kodeJadwal . '/' . $row->kodeKelas . '" class="btn btn-info btn-sm" data-toggle="tooltip" title="Klik untuk Melihat Rekap Absensi"><i class="uil uil-clipboard"></i></a>
-                    
+                    <a href=" rekapabsensiswa/cetak/' . $row->kodeJadwal . '/' . $row->kodeKelas . '" target="_blank" class="btn btn-info btn-sm" data-toggle="tooltip" title="Cetak Rekap Absensi"><i class="uil uil-print"></i></a>
                 </div>
             </td>
 

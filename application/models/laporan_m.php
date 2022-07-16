@@ -156,6 +156,17 @@ class laporan_m extends CI_Model
         $data = $this->db->get('akuntan')->row();
         return $data->kredit;
     }
+
+    function getjadwalpelajaran($kelas, $tahunajaran)
+    {
+        $this->db->where('jadwal_pelajaran.kodeTahun', $tahunajaran);
+        $this->db->where('jadwal_pelajaran.kodeKelas', $kelas);
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = jadwal_pelajaran.kodeTahun', 'left');
+        $this->db->join('kelas', 'kelas.kodeKelas = jadwal_pelajaran.kodeKelas', 'left');
+        $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'left');
+        $this->db->join('guru', 'guru.nip = mata_pelajaran.nip', 'left');
+        return $this->db->get('jadwal_pelajaran')->result();
+    }
 }
 
 /* End of file ModelName.php */

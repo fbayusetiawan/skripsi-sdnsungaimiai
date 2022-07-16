@@ -181,7 +181,7 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                                     <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
                                 </li>
                                 <!-- <li>
-                                    <a href="<?= base_url('laporan/akuntan') ?>" target="_blank">Akuntan</a>
+                                    <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
                                 </li> -->
                                 <!-- <li>
                                     <a href="#m_nilaisiswa" data-toggle="modal">Data Nilai Siswa</a>
@@ -288,3 +288,38 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
         </div>
     </div>
 </div>
+<!-- honor tatausaha -->
+<!-- <div class="modal fade" id="m_jadwalpelajaran" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Cetak Jadwal Pelajaran</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="<?= base_url('laporan/jadwalpelajaran') ?>" method="post" target="_blank">
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">Tahun Ajaran</label>
+                        <?= cmb_dinamis('tahunajaran', 'tahunajaran', 'tahunAjaran', 'idTahunAjaran', '', 'onchange="getJadwalPerhari()" id="tahunajaran"') ?>
+                        <div class="invalid-feedback">
+                            Harus diisi!
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">Kelas</label>
+                        <?= cmb_dinamis('kelas', 'kelas', 'namaKelas', 'kodeKelas', '', 'onchange="getJadwalPerhari()" id="kelas"') ?>
+                        <div class="invalid-feedback">
+                            Harus diisi!
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Print</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->

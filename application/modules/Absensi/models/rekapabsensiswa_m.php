@@ -9,19 +9,13 @@ class rekapabsensiswa_m extends CI_Model
 
     public function getAllData()
     {
-        // $this->db->select('mata_pelajaran.nip as nip, tahun_akademik.namaTahun as namaTahun, kelas.namaKelas as namaKelas, mata_pelajaran.namaMapel as namaMapel, hari.namaHari as namaHari');
-        // $this->db->select('mata_pelajaran.*, guru.namaGuru as namaGuru');
-
-        // // $this->db->join('mata_pelajaran', 'mata_pelajaran.nip = jadwal_pelajaran.nip', 'left');
-        // $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = jadwal_pelajaran.kodeJadwal', 'left');
-        // $this->db->join('kelas', 'kelas.kodeKelas = jadwal_pelajaran.kodeKelas', 'left');
-        // $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'left');
-        // $this->db->join('guru', 'guru.nip = mata_pelajaran.nip', 'left');
-        // $this->db->join('hari', 'hari.namaHari = jadwal_pelajaran.namaHari', 'left');
-        // $this->db->join('kelas', 'kelas.column = table.column', 'left');
-
-
         return $this->db->get($this->namaTable)->result();
+    }
+
+    public function getGuru()
+    {
+        $this->db->where('idJenisPtk', '1');
+        return $this->db->get('guru')->result();
     }
 
     public function getSiswa($KodeJadwal)

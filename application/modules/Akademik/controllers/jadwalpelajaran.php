@@ -132,7 +132,7 @@ class jadwalpelajaran extends CI_Controller
             <td> ' . $row->namaGuru . ' </td>
             <td>
                 <div class="btn-group mb-0">
-                <a href=" jadwalpelajaran/edit/' . $row->kodeJadwal . '" class="btn btn-info btn-sm" data-toggle="tooltip" title="Klik Untuk Edit Jadwal"><i class="uil uil-edit"></i></a>
+                
                 <a href=" jadwalpelajaran/delete/' . $row->kodeJadwal . '" class="delete-data btn btn-info btn-sm" id="' . $row->namaMapel . '" data-toggle="tooltip" title="Klik Untuk Hapus Jadwal"><i class="uil uil-trash-alt"></i></a>
                     
                 </div>
@@ -143,6 +143,7 @@ class jadwalpelajaran extends CI_Controller
             echo '</tbody>';
             echo '</table>';
         endif;
+        // <a href=" jadwalpelajaran/edit/' . $row->kodeJadwal . '" class="btn btn-info btn-sm" data-toggle="tooltip" title="Klik Untuk Edit Jadwal"><i class="uil uil-edit"></i></a>
     }
 }
 
