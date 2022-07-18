@@ -236,7 +236,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                 <img src="assets/images/author-03.png" alt="Author 3">
               </div> -->
                             <div class="text-button-pay">
-                                <a href="<?= base_url('detail/' . $data->idBerita) ?>">Baca.. <i class="fa fa-angle-double-right"></i></a>
+                                <a href="<?= base_url('Auth/detail/' . $data->idBerita) ?>">Baca.. <i class="fa fa-angle-double-right"></i></a>
                             </div>
                         </div>
                     </div>
