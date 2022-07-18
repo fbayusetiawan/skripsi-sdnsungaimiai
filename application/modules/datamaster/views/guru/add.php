@@ -36,7 +36,7 @@ $noPtk = '1';
 
                             </div> -->
                             <div class="form-group">
-                                <label class="col col-form-label" for="simpleinput">NIK</label>
+                                <label class="col col-form-label" for="simpleinput">NIK / NUPTK</label>
 
                                 <input type="text" class="form-control" id="nik" name="nik" value="" required>
                             </div>

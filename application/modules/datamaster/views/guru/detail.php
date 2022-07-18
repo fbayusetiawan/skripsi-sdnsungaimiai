@@ -24,7 +24,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                     <div class="text-center mt-3">
                         <img src="<?= base_url('upload/' . $row->foto) ?>" alt="" class="avatar-lg rounded-circle" />
                         <h5 class="mt-2 mb-0"><?= $row->namaGuru ?></h5>
-                        <h6 class="text-muted font-weight-normal mt-2 mb-0">NIP : <?= $row->nip ?>
+                        <h6 class="text-muted font-weight-normal mt-2 mb-0">NIP / NUPTK : <?= $row->nip ?>
                             <h6 class="text-muted font-weight-normal mt-2 mb-0">Jabatan : <?= $row->jenisPtk ?>
                             </h6>
                             <h6></h6>
@@ -101,7 +101,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             <form class="row g-4">
 
                                 <div class="col-md-6 mt-3">
-                                    <label for="inputAddress" class="form-label">NIP</label>
+                                    <label for="inputAddress" class="form-label">NIP / NUPTK</label>
                                     <input type="text" class="form-control" id="inputAddress" value="<?= $row->nip ?>" disabled>
                                 </div>
                                 <div class="col-md-6 mt-3">

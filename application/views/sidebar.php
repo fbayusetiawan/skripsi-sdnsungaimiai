@@ -180,9 +180,9 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                                 <li>
                                     <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
                                 </li>
-                                <!-- <li>
+                                <li>
                                     <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
-                                </li> -->
+                                </li>
                                 <!-- <li>
                                     <a href="#m_nilaisiswa" data-toggle="modal">Data Nilai Siswa</a>
                                 </li> -->
@@ -289,7 +289,7 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
     </div>
 </div>
 <!-- honor tatausaha -->
-<!-- <div class="modal fade" id="m_jadwalpelajaran" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="m_jadwalpelajaran" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -302,14 +302,14 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                 <form action="<?= base_url('laporan/jadwalpelajaran') ?>" method="post" target="_blank">
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Tahun Ajaran</label>
-                        <?= cmb_dinamis('tahunajaran', 'tahunajaran', 'tahunAjaran', 'idTahunAjaran', '', 'onchange="getJadwalPerhari()" id="tahunajaran"') ?>
+                        <?= cmb_dinamis('tahunajaran', 'tahunajaran', 'tahunAjaran', 'idTahunAjaran', '') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Kelas</label>
-                        <?= cmb_dinamis('kelas', 'kelas', 'namaKelas', 'kodeKelas', '', 'onchange="getJadwalPerhari()" id="kelas"') ?>
+                        <?= cmb_dinamis('kelas', 'kelas', 'namaKelas', 'kodeKelas', '') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
@@ -322,4 +322,4 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
             </div>
         </div>
     </div>
-</div> -->
+</div>

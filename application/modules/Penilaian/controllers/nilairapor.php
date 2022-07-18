@@ -14,7 +14,7 @@ class nilairapor extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public $titles = 'Input Nilai Raport';
+    public $titles = 'Input Nilai';
     public $vn = 'nilairapor';
 
     public function index()
@@ -36,7 +36,7 @@ class nilairapor extends CI_Controller
 
     function detail()
     {
-        $data['title'] = 'Input Nilai Rapor - Pengetahuan';
+        $data['title'] = 'Input Nilai - Pengetahuan';
         $data['pageTitle'] = "Detail Data " . $this->titles;
         $id = $this->uri->segment(4);
         // $id2 = $this->uri->segment(5);
@@ -49,7 +49,7 @@ class nilairapor extends CI_Controller
 
     function detail1()
     {
-        $data['title'] = 'Input Nilai Rapor - Keterampilan';
+        $data['title'] = 'Input Nilai - Keterampilan';
         $data['pageTitle'] = "Detail Data " . $this->titles;
         $id = $this->uri->segment(4);
         // $id2 = $this->uri->segment(5);
