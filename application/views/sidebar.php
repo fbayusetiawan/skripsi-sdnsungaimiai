@@ -89,6 +89,9 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
 
                     <ul class="nav-second-level" aria-expanded="false">
                         <li>
+                            <a href="<?= base_url('datamaster/berita') ?>">Berita</a>
+                        </li>
+                        <li>
                             <a href="<?= base_url('datamaster/guru') ?>">Guru</a>
                         </li>
                         <li>
