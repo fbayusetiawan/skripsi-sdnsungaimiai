@@ -20,7 +20,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <article id='tabs-2'>
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="<?= base_url(); ?>assets/images/profil/<?= $row->foto ?>" alt="">
+                                    <img src="<?= base_url('upload/' . $row->foto) ?>" alt="">
                                 </div>
                                 <!-- <div class="col-md-6">
                                     <h4>Visi</h4>

@@ -29,7 +29,7 @@ class Home extends CI_Controller
 
     public function detail()
     {
-        $data['row'] =  $this->primaryModel->getBeritaById($this->uri->segment(3));
+        $data['row'] =  $this->primaryModel->getBeritaById($this->uri->segment(4));
         $this->template->load('hometemplate', $this->vn . '/detail', $data);
     }
 }
