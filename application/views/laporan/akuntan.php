@@ -18,11 +18,14 @@ $kas = $kredit - $debet;
 
 <body>
     <p align="center">
+        <img src="<?= base_url() ?>/assets/images/tutwurihanda.png" align="left" width="75">
         <b>
-            <img src="<?= base_url() ?>/assets/images/logo/smatanjung.png" align="left" width="65">
-            <font size="5">SMAN 1 TANJUNG</font> <br>
-            Komplek Pertamina, Jl. Gelatik, Murung Pudak, Belimbing, Murung Pudak, Kabupaten Tabalong, Kalimantan Selatan 71571
-        </b><br>
+            <font size="4">Sekolah Dasar Negeri Standar Nasional Sungai Miai 5</font> <br>
+            <font size="2">Jl. Mahoni Blok 2 No.1, RT.33, Sungai Miai, Kec. Banjarmasin Utara, Kota Banjarmasin,</font><br>
+            <font size="2">Kalimantan Selatan 70123 </font><br>
+            <font size="2">Telp. (0511)3303022, Website : www.sdnsnsungaimiai5.sch.id</font><br>
+            <hr size="2px" color="black">
+        </b>
     </p>
     <hr size="1px" color="black">
     <hr size="4px" color="black">
@@ -87,14 +90,14 @@ $kas = $kredit - $debet;
             <td align="center">Banjarmasin, <?= tgl_indo($now) ?></td>
         </tr>
         <tr>
-            <td align="center">Bandahara<br><br><br></td>
+            <td align="center">Bendahara<br><br><br></td>
             <td></td>
             <td align="center">Kepala Sekolah <br><br><br></td>
         </tr>
         <tr>
-            <td align="center"><?= ttd('bandahara')->namaLengkap ?> <br>NIK.<?= ttd('bandahara')->nip ?></td>
+            <td align="center"><?= ttd('3')->namaGuru ?> <br>NIP.<?= ttd('3')->nip ?></td>
             <td></td>
-            <td align="center"><?= ttd('Kepala Sekolah')->namaLengkap ?><br>NIK.<?= ttd('Kepala Sekolah')->nip ?></td>
+            <td align="center"><?= ttd('1')->namaGuru ?><br>NIP.<?= ttd('1')->nip ?></td>
         </tr>
     </table>
 </body>

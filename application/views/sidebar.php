@@ -184,6 +184,9 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                                     <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
                                 </li>
                                 <li>
+                                    <a href="<?= base_url('laporan/akuntan2') ?>" target="_blank">Data Akuntan</a>
+                                </li>
+                                <li>
                                     <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
                                 </li>
                                 <!-- <li>

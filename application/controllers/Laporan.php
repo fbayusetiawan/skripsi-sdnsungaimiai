@@ -156,14 +156,14 @@ class Laporan extends CI_Controller
         $this->load->view('laporan/epelatih', $data);
     }
 
-    function akuntansi()
+    function akuntan()
     {
         $data['data'] = $this->primaryModel->akuntan(1);
         $data['debet'] = $this->primaryModel->debet(1);
         $data['kredit'] = $this->primaryModel->kredit(1);
         $this->load->view('laporan/akuntan', $data);
     }
-    function akuntansi2()
+    function akuntan2()
     {
         $data['data'] = $this->primaryModel->akuntan(2);
         $data['debet'] = $this->primaryModel->debet(2);
