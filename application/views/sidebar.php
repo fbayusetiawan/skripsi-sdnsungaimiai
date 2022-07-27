@@ -50,153 +50,209 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                         <span> Dashboard </span>
                     </a>
                 </li>
-                <li class="menu-title">NAVIGATION</li>
-                <li>
-                    <a href="<?= base_url('admin/dana') ?>">
-                        <i data-feather="dollar-sign"></i>
-                        <span> Dana BOS </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript: void(0);">
-                        <i data-feather="box"></i>
-                        <span> Honorarium </span>
-                        <span class="menu-arrow"></span>
-                    </a>
+                <?php if ($this->session->userdata('roleId') == '1') : ?>
+                    <li class="menu-title">NAVIGATION</li>
+                    <li>
+                        <a href="<?= base_url('admin/dana') ?>">
+                            <i data-feather="dollar-sign"></i>
+                            <span> Dana BOS </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <i data-feather="box"></i>
+                            <span> Honorarium </span>
+                            <span class="menu-arrow"></span>
+                        </a>
 
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="<?= base_url('honorarium/hpengajar') ?>">Pengajar</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('honorarium/hwalikelas') ?>">Wali Kelas</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('honorarium/htatausaha') ?>">Tata Usaha</a>
-                        </li>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="<?= base_url('honorarium/hpengajar') ?>">Pengajar</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('honorarium/hwalikelas') ?>">Wali Kelas</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('honorarium/htatausaha') ?>">Tata Usaha</a>
+                            </li>
 
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
 
-                <li class="menu-title">Akademik</li>
+                    <li class="menu-title">Akademik</li>
 
-                <li>
-                    <a href="javascript: void(0);">
-                        <i data-feather="database"></i>
-                        <span> Data Master </span>
-                        <span class="menu-arrow"></span>
-                    </a>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <i data-feather="database"></i>
+                            <span> Data Master </span>
+                            <span class="menu-arrow"></span>
+                        </a>
 
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="<?= base_url('datamaster/berita') ?>">Berita</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('datamaster/guru') ?>">Guru</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('datamaster/siswa') ?>">Siswa</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('datamaster/kelas') ?>">Kelas</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('datamaster/ta') ?>">Tahun Akademik</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('datamaster/users') ?>">Users</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript: void(0);">
-                        <i data-feather="briefcase"></i>
-                        <span> Data Akademik </span>
-                        <span class="menu-arrow"></span>
-                    </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="<?= base_url('akademik/Kelompokmapel') ?>">Kelompok Mapel</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('akademik/mapel') ?>">Mata Pelajaran</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('akademik/jadwalpelajaran') ?>">Jadwal Pelajaran</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('Penilaian/nilairapor') ?>">Input Nilai</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript: void(0);">
-                        <i data-feather="clipboard"></i>
-                        <span> Data Absensi </span>
-                        <span class="menu-arrow"></span>
-                    </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="<?= base_url('datamaster/berita') ?>">Berita</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('datamaster/guru') ?>">Guru</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('datamaster/siswa') ?>">Siswa</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('datamaster/kelas') ?>">Kelas</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('datamaster/ta') ?>">Tahun Akademik</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('datamaster/users') ?>">Users</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <i data-feather="briefcase"></i>
+                            <span> Data Akademik </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="<?= base_url('akademik/Kelompokmapel') ?>">Kelompok Mapel</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('akademik/mapel') ?>">Mata Pelajaran</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('akademik/jadwalpelajaran') ?>">Jadwal Pelajaran</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('Penilaian/nilairapor') ?>">Input Nilai</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <i data-feather="clipboard"></i>
+                            <span> Data Absensi </span>
+                            <span class="menu-arrow"></span>
+                        </a>
 
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="<?= base_url('Absensi/absensiswa') ?>">Absensi Siswa</a>
-                        </li>
-                        <li>
-                            <a href="<?= base_url('Absensi/rekapabsensiswa') ?>">Rekap Absensi</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-title">Report</li>
-                <li>
-                    <a href="javascript: void(0);">
-                        <i data-feather="printer"></i>
-                        <span> Laporan </span>
-                        <span class="menu-arrow"></span>
-                    </a>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="<?= base_url('Absensi/absensiswa') ?>">Absensi Siswa</a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('Absensi/rekapabsensiswa') ?>">Rekap Absensi</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-title">Report</li>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <i data-feather="printer"></i>
+                            <span> Laporan </span>
+                            <span class="menu-arrow"></span>
+                        </a>
 
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="javascript: void(0);">
-                                <span> Honorarium </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="#m_hpengajar" data-toggle="modal">Pengajar</a>
-                                </li>
-                                <li>
-                                    <a href="#m_hwalikelas" data-toggle="modal">Wali Kelas</a>
-                                </li>
-                                <li>
-                                    <a href="#m_htatausaha" data-toggle="modal">Tata Usaha</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);">
-                                <span> Akademik </span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <ul class="nav-second-level" aria-expanded="false">
-                                <li>
-                                    <a href="<?= base_url('laporan/lguru') ?>" target="_blank">Data Guru</a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('laporan/akuntan2') ?>" target="_blank">Data Akuntan</a>
-                                </li>
-                                <li>
-                                    <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
-                                </li>
-                                <!-- <li>
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <span> Honorarium </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li>
+                                        <a href="#m_hpengajar" data-toggle="modal">Pengajar</a>
+                                    </li>
+                                    <li>
+                                        <a href="#m_hwalikelas" data-toggle="modal">Wali Kelas</a>
+                                    </li>
+                                    <li>
+                                        <a href="#m_htatausaha" data-toggle="modal">Tata Usaha</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <span> Akademik </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li>
+                                        <a href="<?= base_url('laporan/lguru') ?>" target="_blank">Data Guru</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('laporan/akuntan2') ?>" target="_blank">Data Akuntan</a>
+                                    </li>
+                                    <li>
+                                        <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
+                                    </li>
+                                    <!-- <li>
                                     <a href="#m_nilaisiswa" data-toggle="modal">Data Nilai Siswa</a>
                                 </li> -->
 
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                <?php elseif ($this->session->userdata('roleId') == '2') : ?>
+                    <li>
+                        <a href="javascript: void(0);">
+                            <i data-feather="printer"></i>
+                            <span> Laporan </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+
+                        <ul class="nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <span> Honorarium </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li>
+                                        <a href="#m_hpengajar" data-toggle="modal">Pengajar</a>
+                                    </li>
+                                    <li>
+                                        <a href="#m_hwalikelas" data-toggle="modal">Wali Kelas</a>
+                                    </li>
+                                    <li>
+                                        <a href="#m_htatausaha" data-toggle="modal">Tata Usaha</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript: void(0);">
+                                    <span> Akademik </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <ul class="nav-second-level" aria-expanded="false">
+                                    <li>
+                                        <a href="<?= base_url('laporan/lguru') ?>" target="_blank">Data Guru</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('laporan/lsiswa') ?>" target="_blank">Data Semua Siswa</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('laporan/akuntan2') ?>" target="_blank">Data Akuntan</a>
+                                    </li>
+                                    <li>
+                                        <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
+                                    </li>
+                                    <!-- <li>
+                                    <a href="#m_nilaisiswa" data-toggle="modal">Data Nilai Siswa</a>
+                                </li> -->
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                <?php endif ?>
+
             </ul>
         </div>
         <!-- End Sidebar -->

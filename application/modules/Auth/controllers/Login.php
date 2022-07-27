@@ -88,6 +88,7 @@ class Login extends CI_Controller
                             'email' => $user->email,
                             'noWa' => $user->noWa,
                             'username' => $user->username,
+                            'roleId' => $user->roleId,
                         ];
                     endif;
                     $this->session->set_userdata($data);
@@ -95,7 +96,7 @@ class Login extends CI_Controller
                         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat Datang, ' . $user->namaLengkap . '</div>');
                         redirect('Admin/Dashboard'); //Superadmin
                     elseif ($user->roleId == 2) :
-                        redirect('Home/Dashboard'); //Guru
+                        redirect('Admin/Dashboard'); //Guru
                     else :
                         redirect('Home/Dashboard'); //Siswa
                     endif;
