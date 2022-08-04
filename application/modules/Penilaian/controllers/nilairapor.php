@@ -9,8 +9,6 @@ class nilairapor extends CI_Controller
     {
         parent::__construct();
         $this->load->model('nilairapor_m');
-
-
         $this->load->library('form_validation');
     }
 
@@ -34,12 +32,35 @@ class nilairapor extends CI_Controller
         $this->template->load('template', $this->vn . '/add', $data);
     }
 
+    // function detail()
+    // {
+    //     $data['title'] = 'Cetak Rapor Siswa';
+    //     $kodeKelas = $this->input->post('kodeKelas');
+    //     $tahun_akademik = $this->input->post('kodeTahun');
+
+    //     $array = array(
+    //         'kodeKelas' => $kodeKelas
+    //     );
+
+    //     $this->session->set_userdata($array);
+
+    //     $this->db->where('kodeKelas', $kodeKelas);
+
+
+    //     $data['tahun'] = $tahun_akademik;
+    //     $data['data'] = $this->db->get('siswa')->result();
+
+    //     $this->template->load('template', $this->vn . '/detail', $data);
+    // }
+
     function detail()
     {
+        $tahun_akademik = $this->input->post('idTahunAjaran');
         $data['title'] = 'Input Nilai - Pengetahuan';
         $data['pageTitle'] = "Detail Data " . $this->titles;
         $id = $this->uri->segment(4);
         // $id2 = $this->uri->segment(5);
+        $data['tahun'] = $tahun_akademik;
         $data['data'] = $this->nilairapor_m->getSiswa($id);
         $data['nilai'] = $this->nilairapor_m->getDataById($id);
 
@@ -103,7 +124,67 @@ class nilairapor extends CI_Controller
         return $upload['file_name'];
     }
 
+    function hal4()
+    {
+        $data['title'] = $this->titles;
+        $data['pageTitle'] = "Detail Data " . $this->titles;
+        $id = $this->uri->segment(4);
+        $tahun = $this->uri->segment(5);
+        $data['row'] = $this->primaryModel->getSiswaById($id);
+        $data['data'] = $this->db->get('identitas_sekolah')->row();
 
+        $this->db->where('nisn', $id);
+        $this->db->where('nilai_pengetahuan.kodeTahun', $tahun);
+        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_pengetahuan.kodeTahun', 'left');
+
+        $data['c'] = $this->db->get('nilai_pengetahuan')->row();
+
+
+        $this->db->where('nisn', $id);
+        $this->db->where('nilai_pengetahuan.kodeTahun', $tahun);
+        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_pengetahuan.kodeTahun', 'left');
+
+
+        $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_pengetahuan.kodeJadwal ', 'LEFT');
+        $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'LEFT');
+
+        $data['penge'] = $this->db->get('nilai_pengetahuan')->result();
+        // var_dump($data['c']);
+        // die;
+        $data['k'] = $this->db->get('kelompok_mapel')->result();
+
+        // $this->load->library('Mypdf');
+        $this->load->view($this->vn . '/hal4', $data);
+    }
+
+    function hal5()
+    {
+        $data['title'] = $this->titles;
+        $data['pageTitle'] = "Detail Data " . $this->titles;
+        $id = $this->uri->segment(4);
+        $tahun = $this->uri->segment(5);
+        $data['row'] = $this->primaryModel->getDataById($id);
+        $data['data'] = $this->db->get('identitas_sekolah')->row();
+
+        $this->db->where('nisn', $id);
+        $this->db->where('nilai_keterampilan.kodeTahun', $tahun);
+        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_keterampilan.kodeTahun', 'left');
+
+        $data['c'] = $this->db->get('nilai_keterampilan')->row();
+        $this->db->where('nisn', $id);
+        $this->db->where('nilai_keterampilan.kodeTahun', $tahun);
+        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_keterampilan.kodeTahun', 'left');
+
+
+        $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_keterampilan.kodeJadwal ', 'LEFT');
+        $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'LEFT');
+
+        $data['keter'] = $this->db->get('nilai_keterampilan')->result();
+        $data['k'] = $this->db->get('kelompok_mapel')->result();
+
+        $this->load->library('Mypdf');
+        $this->mypdf->generatehal5($this->vn . '/hal5', $data);
+    }
 
     function getJadwalPerhari()
     {

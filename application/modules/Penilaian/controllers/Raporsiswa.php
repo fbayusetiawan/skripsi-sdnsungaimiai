@@ -2,28 +2,26 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class cetakrapor extends CI_Controller
+class Raporsiswa extends CI_Controller
 {
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('cetakrapor_m', 'primaryModel');
+        $this->load->model('Raporsiswa_m', 'primaryModel');
         $this->load->library('form_validation');
     }
 
-    public $titles = 'Cetak Raport Siswa';
-    public $vn = 'cetakrapor';
+    public $titles = 'Cetak Raport';
+    public $vn = 'raporsiswa';
 
     public function index()
     {
         $data['title'] = $this->titles;
         $data['pageTitle'] = "Data " . $this->titles;
         $data['data'] = $this->primaryModel->getAllData();
-
         $this->template->load('template', $this->vn . '/list', $data);
     }
-
 
     function add()
     {
@@ -61,8 +59,8 @@ class cetakrapor extends CI_Controller
         $id = $this->uri->segment(4);
         $data['row'] = $this->primaryModel->getDataById($id);
 
-        $this->load->library('Mypdf');
-        $this->mypdf->generateraporcover($this->vn . '/cover', $data);
+        // $this->load->library('Mypdf');
+        $this->load->view($this->vn . '/cover', $data);
     }
 
     function hal1()
@@ -75,14 +73,14 @@ class cetakrapor extends CI_Controller
         $data['data'] = $this->db->get('identitas_sekolah')->row();
         // $data['capaian'] = $this->primaryModel->getCapaianBelajar($id);
         $this->db->where('nisn', $id);
-        $this->db->where('nilai_capaianbelajar.kodeTahun', $tahun);
+        // $this->db->where('nilai_capaianbelajar.kodeTahun', $tahun);
 
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_capaianbelajar.kodeTahun', 'left');
+        // $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_capaianbelajar.kodeTahun', 'left');
 
-        $data['c'] = $this->db->get('nilai_capaianbelajar')->row();
+        // $data['c'] = $this->db->get('nilai_capaianbelajar')->row();
 
-        $this->load->library('Mypdf');
-        $this->mypdf->generatehal1($this->vn . '/hal1', $data);
+        // $this->load->library('Mypdf');
+        $this->load->view($this->vn . '/hal1', $data);
     }
 
     function hal2()
@@ -137,16 +135,14 @@ class cetakrapor extends CI_Controller
 
         $this->db->where('nisn', $id);
         $this->db->where('nilai_pengetahuan.kodeTahun', $tahun);
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_pengetahuan.kodeTahun', 'left');
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = nilai_pengetahuan.kodeTahun', 'left');
 
         $data['c'] = $this->db->get('nilai_pengetahuan')->row();
 
 
         $this->db->where('nisn', $id);
-        $this->db->where('nilai_pengetahuan.kodeTahun', $tahun);
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_pengetahuan.kodeTahun', 'left');
-
-
+        // $this->db->where('nilai_pengetahuan.kodeTahun', $tahun);
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = nilai_pengetahuan.kodeTahun', 'left');
         $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_pengetahuan.kodeJadwal ', 'LEFT');
         $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'LEFT');
 
@@ -155,8 +151,8 @@ class cetakrapor extends CI_Controller
         // die;
         $data['k'] = $this->db->get('kelompok_mapel')->result();
 
-        $this->load->library('Mypdf');
-        $this->mypdf->generatehal4($this->vn . '/hal4', $data);
+        // $this->load->library('Mypdf');
+        $this->load->view($this->vn . '/hal4', $data);
     }
 
     function hal5()
@@ -170,22 +166,20 @@ class cetakrapor extends CI_Controller
 
         $this->db->where('nisn', $id);
         $this->db->where('nilai_keterampilan.kodeTahun', $tahun);
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_keterampilan.kodeTahun', 'left');
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = nilai_keterampilan.kodeTahun', 'left');
 
         $data['c'] = $this->db->get('nilai_keterampilan')->row();
         $this->db->where('nisn', $id);
-        $this->db->where('nilai_keterampilan.kodeTahun', $tahun);
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_keterampilan.kodeTahun', 'left');
-
-
+        // $this->db->where('nilai_keterampilan.kodeTahun', $tahun);
+        $this->db->join('tahunajaran', 'tahunajaran.idTahunAjaran = nilai_keterampilan.kodeTahun', 'left');
         $this->db->join('jadwal_pelajaran', 'jadwal_pelajaran.kodeJadwal = nilai_keterampilan.kodeJadwal ', 'LEFT');
         $this->db->join('mata_pelajaran', 'mata_pelajaran.kodeMapel = jadwal_pelajaran.kodeMapel', 'LEFT');
 
         $data['keter'] = $this->db->get('nilai_keterampilan')->result();
         $data['k'] = $this->db->get('kelompok_mapel')->result();
 
-        $this->load->library('Mypdf');
-        $this->mypdf->generatehal5($this->vn . '/hal5', $data);
+        // $this->load->library('Mypdf');
+        $this->load->view($this->vn . '/hal5', $data);
     }
 
     function hal6()

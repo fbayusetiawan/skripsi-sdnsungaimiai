@@ -128,6 +128,9 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                             <li>
                                 <a href="<?= base_url('Penilaian/nilairapor') ?>">Input Nilai</a>
                             </li>
+                            <li>
+                                <a href="<?= base_url('Penilaian/raporsiswa') ?>">Raport Online</a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -144,6 +147,7 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                             <li>
                                 <a href="<?= base_url('Absensi/rekapabsensiswa') ?>">Rekap Absensi</a>
                             </li>
+
                         </ul>
                     </li>
                     <li class="menu-title">Report</li>
@@ -190,9 +194,9 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                                     <li>
                                         <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
                                     </li>
-                                    <!-- <li>
-                                    <a href="#m_nilaisiswa" data-toggle="modal">Data Nilai Siswa</a>
-                                </li> -->
+                                    <li>
+                                        <a href="<?= base_url('penilaian/cetakrapor') ?>">E-Rapor</a>
+                                    </li>
 
                                 </ul>
                             </li>

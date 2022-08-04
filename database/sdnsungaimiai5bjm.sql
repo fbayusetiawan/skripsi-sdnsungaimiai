@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2022 at 02:14 PM
+-- Generation Time: Aug 04, 2022 at 02:13 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.28
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sdnsungaimiai5`
+-- Database: `sdnsungaimiai5bjm`
 --
 
 -- --------------------------------------------------------
@@ -34,6 +34,16 @@ CREATE TABLE `absensi_siswa` (
   `kehadiran` varchar(5) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `absensi_siswa`
+--
+
+INSERT INTO `absensi_siswa` (`idAbsenSiswa`, `kodeJadwal`, `nisn`, `kehadiran`, `tanggal`) VALUES
+('62cfe7aa35c43', '62cea3a8541c6', '12345', 'H', '2022-07-14'),
+('62d2205fa2b59', '62cea34d9adbe', '12345', 'H', '2022-07-16'),
+('62d2216a26f23', '62cea3a8541c6', '12345', 'H', '2022-07-16'),
+('62d3ffc24c2c3', '62d224c60e88a', '12345', 'H', '2022-07-18');
 
 -- --------------------------------------------------------
 
@@ -57,10 +67,7 @@ CREATE TABLE `akuntan` (
 --
 
 INSERT INTO `akuntan` (`idAkuntan`, `idTahunAjaran`, `keterangan`, `kredit`, `debit`, `jenisDana`, `fk`, `idGuru`) VALUES
-(105, 2, 'Dana Bos Masuk', 100000000, 0, 2, '', ''),
-(106, 2, 'Honor Pengajar', 0, 3000000, 2, '62ce4ae65a44a', '62acc4f5ee194'),
-(107, 2, 'Dana Bos Nasional dari Pemerintah', 0, 5000000, 2, '62ce4cb6cbeb3', '62dfaebc0c574'),
-(108, 2, 'Honor TU', 0, 5000000, 2, '62ce4ccddfb34', '62dfb021585f5');
+(107, 2, 'Dana Bos Masuk', 100000000, 0, 2, '', '');
 
 -- --------------------------------------------------------
 
@@ -104,7 +111,7 @@ CREATE TABLE `danamasuk` (
 --
 
 INSERT INTO `danamasuk` (`idDanaMasuk`, `idTahunAjaran`, `jenis`, `jumlah`, `keterangan`) VALUES
-('62e129237923c', 2, 2, 100000000, 'Dana Bos Nasional dari Pemerintah');
+('62df9593a2018', 2, 2, 100000000, 'Dana Bos Nasional dari Pemerintah');
 
 --
 -- Triggers `danamasuk`
@@ -178,14 +185,7 @@ INSERT INTO `guru` (`idGuru`, `nip`, `password`, `nik`, `namaGuru`, `jk`, `tempa
 ('62acc4f5ee194', '19630301 198503 2 012', '$2y$10$9SH4yLGrJUA4nM2q7QU7iOBojiODDemS.3w5n8fQUDf0WWFgJzEAS', '6309020407097002', 'Hj. Rusmalina, S.Pd., MM', 'P', 'Longawang', '1963-12-24', 'Islam', 'Jl. Handil Bakti Raya Pesona Indah', '08', '01', 'Barito', 'Barito Kuala', 'Barito Kuala', '081251898990', 'rusmalina@gmail.com', '-', 1, '279860932_407170168081950_6545682480426208850_n.jpg', '1', 1655489815),
 ('62acc60b61bbb', '19810930 200701 2 013', '$2y$10$5Jor2wWtg7GF5S5Po1zG9ODN.T2R5/fmJYREjLaMs9CBYNjrhsCja', '6309020407097002', 'Sanawati, S.Pd.,SD', 'P', 'Laiyolo', '1981-09-30', 'Islam', 'Jl. Jahri Saleh, Komp. Kenanga Indah ', '08', '01', 'Jahri Saleh', 'Banjarmasin Tengah', 'Banjarmasin', '081251898990', 'sanawati@gmail.com', '', 2, '286407642_3097630967168101_5867907648036932842_n.jpg', '1', 1655490059),
 ('62acd172653c6', '19860822 200903 2 009', '$2y$10$VgpKRuu1t4PDtkUAIFKNt.VXkqNdhdugBKPIYwTlsTBZlrxnyHbRq', '6309020407097003', 'Lisdawati, S.Pd', 'P', 'Banjarmasin', '1986-08-22', 'Islam', 'Jl. Bakti Utama No 1', '08', '01', 'Jahri Saleh', 'Banjarmasin Tengah', 'Banjarmasin', '081251898991', 'lisdawati@gmail.com', '-', 3, '279860932_407170168081950_6545682480426208850_n1.jpg', '1', 1655492978),
-('62ada1a48e88b', '19631224 198503 1 012', '$2y$10$G3mVY2wlVEITMLKyf8/P9.2rMc8AEahoW4q5gpZ7MIPbG743bS5lG', '6309020407097006', 'Said Ismail, S.Pd', 'L', 'Banjarmasin', '1963-12-24', 'Islam', 'Jl. Cemara Raya Komp. Tanjung', '09', '04', 'Cemara raya', 'Banjarmasin Tengah', 'Banjarmasin', '082150508989', 'saidismail@gmail.com', '', 17, '63224e95fb803683776e251afdad97bf.jpg', '1', 1655546276),
-('62dfaebc0c574', '19640401 201406 1 003', '$2y$10$gGhpqdNAGKSj95iUGyAnU.TbqLg523HhqhabIwpbZe5ZmC0YA/A/y', '-', 'Drs.Norman Said', 'L', 'Pandulangan', '1964-04-01', 'Islam', 'Jl.Pangeran no 04  Banjarmasin', '18', '04', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081250054551', 'normansaid@gmail.com', '-', 2, 'IMG-20190319-WA0005.jpg', '1', 1658826428),
-('62dfaf54d0137', '19950106201903 1 006', '$2y$10$dyNLIxWl72agvTgOImqSLOqZ9feKNYWJCrneZftUcmjWHc9cMYuIi', '-', 'Ahmad Zaini, S.Pd', 'L', 'Telaga Sari', '1995-06-01', 'Islam', 'Jl.Pangeran no 18  Banjarmasin', '12', '05', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '085213234567', 'ahmadzaini@gmail.com', '-', 2, 'default.jpg', '1', 1658826603),
-('62dfb021585f5', '19860822200906 1 003', '$2y$10$aSBTBqQmsFBopGPchJoWqeQGIvvoHdwLSd05tpzHzscCeTszMn3V6', '-', 'Irmawati, S.Pd', 'P', 'Amuntai', '1986-10-17', 'Islam', 'Jl. Anggur No 22 Banjarmasin', '17', '05', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '085234546789', 'irmawati@gmail.com', '-', 2, 'IMG-20190319-WA00052.jpg', '1', 1658826785),
-('62dfb2ca8b57e', '-', '$2y$10$zVycz2MrxYfUoPoz0cF8R.76sxUU.aXhM.E/.hcn4zBYY9jLK/OlO', '8049759661300083', 'Lily Sarliani, S.Pd', 'P', 'Banjarmasin', '1985-02-06', 'Islam', 'Jl. Binajaya No 12Banjarmasin', '12', '04', 'Sungai Andai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081245567654', 'lilysarliani@gmail.com', '-', 2, 'IMG-20190319-WA00053.jpg', '1', 1658827466),
-('62dfb3b2c26b1', '-', '$2y$10$.AWXlOM7RqPk6qQVAz40Tetp.JaxEwV3bJmCmlH30vaLgJEqqN0U2', '4446769670130023', 'Norliani, S.Pd', 'L', 'Banjarmasin', '1990-06-11', 'Islam', 'Jl. Anggrek No 14 Banjarmasin', '18', '04', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081245567653', 'norliani@gmail.com', '-', 2, 'IMG-20190319-WA00054.jpg', '1', 1658827698),
-('62dfb453c041b', '-', '$2y$10$PXTHKXSiuuM0w7AfvRYw3eUvqsHQqRZZfoYBOykiorluo1guvfDQW', '6142765667130113', 'Bambang Agus Sumarno, S.Pd', 'L', 'Banjarmasin', '1987-06-26', 'Islam', 'Jl. Binajaya No 17 Banjarmasin', '12', '05', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081245567690', 'bambangagussumarno@gmail.com', '-', 18, 'default.jpg', '1', 1658828088),
-('62dfb528a2e9b', '-', '$2y$10$H1.YiGrQbZohx7N0bhcxD.dPLrUxtpenEqjYPJeHKGjRwWvvQNL7.', '4736770671130022', 'Nike Parina, S.Pd', 'L', 'Banjarmasin', '1985-05-06', 'Islam', 'Jl. Anggrek No 17 Banjarmasin', '10', '03', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081245565432', 'nikeparina@gmail.com', '-', 2, 'IMG-20190319-WA00056.jpg', '1', 1658828072);
+('62ada1a48e88b', '19631224 198503 1 012', '$2y$10$G3mVY2wlVEITMLKyf8/P9.2rMc8AEahoW4q5gpZ7MIPbG743bS5lG', '6309020407097006', 'Said Ismail, S.Pd', 'L', 'Banjarmasin', '1963-12-24', 'Islam', 'Jl. Cemara Raya Komp. Tanjung', '09', '04', 'Cemara raya', 'Banjarmasin Tengah', 'Banjarmasin', '082150508989', 'saidismail@gmail.com', '', 17, '63224e95fb803683776e251afdad97bf.jpg', '1', 1655546276);
 
 -- --------------------------------------------------------
 
@@ -201,15 +201,6 @@ CREATE TABLE `honorarium` (
   `keterangan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `honorarium`
---
-
-INSERT INTO `honorarium` (`idHonorarium`, `idTahunAjaran`, `tanggal`, `jenisHonorarium`, `keterangan`) VALUES
-('62ce4ae65a44a', 2, '2022-07-01', 'hpengajar', 'Honor Pengajar'),
-('62ce4cb6cbeb3', 2, '2022-07-01', 'hwalikelas', 'Dana Bos Nasional dari Pemerintah'),
-('62ce4ccddfb34', 2, '2022-07-13', 'htatausaha', 'Honor TU');
-
 -- --------------------------------------------------------
 
 --
@@ -223,13 +214,6 @@ CREATE TABLE `h_pengajar` (
   `honor` int(11) NOT NULL,
   `jenisDana` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `h_pengajar`
---
-
-INSERT INTO `h_pengajar` (`idPengajar`, `idHonorarium`, `idGuru`, `honor`, `jenisDana`) VALUES
-(27, '62ce4ae65a44a', '62acc4f5ee194', 3000000, 2);
 
 -- --------------------------------------------------------
 
@@ -245,13 +229,6 @@ CREATE TABLE `h_tatausaha` (
   `jenisDana` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `h_tatausaha`
---
-
-INSERT INTO `h_tatausaha` (`idTataUsaha`, `idHonorarium`, `idGuru`, `honor`, `jenisDana`) VALUES
-(12, '62ce4ccddfb34', '62dfb021585f5', 5000000, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -266,12 +243,33 @@ CREATE TABLE `h_walikelas` (
   `jenisDana` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `h_walikelas`
+-- Table structure for table `identitas_sekolah`
 --
 
-INSERT INTO `h_walikelas` (`idWaliKelas`, `idHonorarium`, `idGuru`, `honor`, `jenisDana`) VALUES
-(15, '62ce4cb6cbeb3', '62dfaebc0c574', 5000000, 2);
+CREATE TABLE `identitas_sekolah` (
+  `idSekolah` varchar(20) NOT NULL,
+  `namaSekolah` varchar(128) NOT NULL,
+  `npsn` varchar(50) NOT NULL,
+  `alamat` text NOT NULL,
+  `kodePos` int(7) NOT NULL,
+  `noTelp` varchar(15) NOT NULL,
+  `kelurahan` varchar(128) NOT NULL,
+  `kecamatan` varchar(128) NOT NULL,
+  `kabupaten` varchar(128) NOT NULL,
+  `provinsi` varchar(128) NOT NULL,
+  `website` varchar(128) NOT NULL,
+  `email` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `identitas_sekolah`
+--
+
+INSERT INTO `identitas_sekolah` (`idSekolah`, `namaSekolah`, `npsn`, `alamat`, `kodePos`, `noTelp`, `kelurahan`, `kecamatan`, `kabupaten`, `provinsi`, `website`, `email`) VALUES
+('60e92d43abcc8', 'SD Negeri Standar Nasional Sungai Miai 5', '	30304103', 'Jl.Cemara Ujung RT.22 RW.01 No.07 Banjarmasin', 70123, '082350890707', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin', 'Kalimantan Selatan', 'https://www.sdnsnsungaimiai5.sch.id/', 'sdnsnsungaimiai5@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -298,7 +296,7 @@ INSERT INTO `jadwal_pelajaran` (`kodeJadwal`, `kodeTahun`, `kodeKelas`, `kodeMap
 ('62baf166b0fab', '10', 'I.A', 'MP01', '', '08:00:00', '10:00:00', 'Senin'),
 ('62baf52278972', '10', 'I.A', 'MP02', '', '08:00:00', '10:00:00', 'Selasa'),
 ('62cea34d9adbe', '1', 'I.B', 'MP01', '', '08:00:00', '12:00:00', 'Senin'),
-('62cea3a8541c6', '10', 'I.B', 'MP01', '', '08:00:00', '12:00:00', 'Senin');
+('62d224c60e88a', '10', 'I.B', 'MP01', '', '08:00:00', '10:00:00', 'Senin');
 
 -- --------------------------------------------------------
 
@@ -319,8 +317,7 @@ INSERT INTO `jenis_ptk` (`idJenisPtk`, `jenisPtk`) VALUES
 (1, 'Kepala Sekolah'),
 (2, 'Guru Umum'),
 (3, 'Bendahara'),
-(17, 'Guru Olahraga'),
-(18, 'Operator / Tata Usaha');
+(17, 'Guru Olahraga');
 
 -- --------------------------------------------------------
 
@@ -387,14 +384,8 @@ CREATE TABLE `mata_pelajaran` (
 --
 
 INSERT INTO `mata_pelajaran` (`kodeMapel`, `idKelompokMapel`, `nip`, `namaMapel`, `jumlahJam`, `isActive`) VALUES
-('MP01', 1, '19810930 200701 2 013', 'Pendidikan Agama dan Budi Pekerti', '2', '1'),
-('MP02', 1, '19860822 200903 2 009', 'Pendidikan Pancasila dan Kewarganegaraan', '2', '1'),
-('MP03', 1, '19860822200906 1 003', 'Bahasa Indonesia', '2', '0'),
-('MP04', 1, '19640401 201406 1 003', 'Matematika', '2', '0'),
-('MP05', 1, '19950106201903 1 006', 'Ilmu Pengetahuan Alam', '2', '1'),
-('MP06', 1, '-', 'Ilmu Pengetahuan Sosial', '2', '1'),
-('MP07', 2, '-', 'Seni Budaya dan Prakarya', '2', '1'),
-('MP08', 2, '-', 'Pendidikan Jasmani, Olahraga, dan Kesehatan', '2', '1');
+('MP01', 1, '19810930 200701 2 013', 'Matematika', '2', '1'),
+('MP02', 1, '19860822 200903 2 009', 'Bahasa Indonesia', '2', '1');
 
 -- --------------------------------------------------------
 
@@ -416,7 +407,7 @@ CREATE TABLE `neraca` (
 --
 
 INSERT INTO `neraca` (`idNeraca`, `idTamu`, `tanggal`, `keterangan`, `debit`, `kredit`) VALUES
-(21, '62e129237923c', '0000-00-00', 'Dana Bos Nasional dari Pemerintah', 0, 100000000);
+(22, '62df9593a2018', '0000-00-00', 'Dana Bos Nasional dari Pemerintah', 0, 100000000);
 
 -- --------------------------------------------------------
 
@@ -441,7 +432,7 @@ CREATE TABLE `nilai_keterampilan` (
 --
 
 INSERT INTO `nilai_keterampilan` (`idNilaiKeterampilan`, `kodeTahun`, `kodeJadwal`, `nisn`, `nilaiuh`, `nilaiuts`, `nilaiuas`, `rerata`, `deskripsi`) VALUES
-('62e09071bc1ae', '1', '62cea3a8541c6', '9999897123', 80, 80, 80, 80, 'Baik, Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan\r\nsebagian besar soal cerita.');
+('62eb0e078bdd9', '1', '62d224c60e88a', '12345', 80, 80, 80, 80, 'Baik, Aktif bertanya, mencoba, menalar dan kreatif dalam menyelesaikan\r\nsebagian besar soal cerita.');
 
 -- --------------------------------------------------------
 
@@ -466,7 +457,7 @@ CREATE TABLE `nilai_pengetahuan` (
 --
 
 INSERT INTO `nilai_pengetahuan` (`idNilaiPengetahuan`, `kodeTahun`, `kodeJadwal`, `nisn`, `nilaiuh`, `nilaiuts`, `nilaiuas`, `rerata`, `deskripsi`) VALUES
-('62e090624fd46', '1', '62cea3a8541c6', '9999897123', 90, 90, 90, 90, 'Sangat baik dan sempurna. Dapat mengingat, mengetahui, menerapkan,\r\nmenganalisis, dan mengevaluasi semua kompetensi dasar.');
+('62d227976969e', '1', '62d224c60e88a', '12345', 80, 80, 80, 80, 'Baik. Dapat mengingat, mengetahui, menerapkan, menganalis sebagian besar\r\nkompetensi dasar tetapi kurang bisa mengevaluasi dua kompetensi dasar');
 
 -- --------------------------------------------------------
 
@@ -519,12 +510,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`idSiswa`, `nisn`, `nis`, `password`, `namaSiswa`, `jk`, `tempatLahir`, `tanggalLahir`, `statusKeluarga`, `anakKe`, `agama`, `alamat`, `rt`, `rw`, `kelurahan`, `kecamatan`, `kabupaten`, `noTelp`, `foto`, `asalTk`, `namaAyah`, `pekerjaanAyah`, `alamatAyah`, `noHpAyah`, `namaIbu`, `pekerjaanIbu`, `alamatIbu`, `noHpIbu`, `namaWali`, `alamatWali`, `noHpWali`, `angkatan`, `kodeKelas`, `roleId`, `isActive`, `dateCreated`, `validate`) VALUES
-('62dfabb56de50', '12347', '12347', '$2y$10$HgBdzLu2mklPwS8AU7ZEqu7WK/fviovVwluEyJGfTlmQDCOUg2eKy', 'Meika Fitriana', 'P', 'Banjarmasin', '2014-05-12', 'Anak Kandung', '2', 'Islam', 'Jl. Anggur No 42 Banjarmasin', '12', '05', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081245567650', '', 'Harapan Bersama', 'Ahmad Zaini', 'Swasta', 'Jl. Anggur No 42 Banjarmasin', '082345658998', 'Aisyah', 'Ibu Rumah Tangga', 'Jl. Anggur No 42 Banjarmasin', '081245567650', '-', '-', '-', '2021', 'II.A', 3, 1, 1658825653, 0),
-('62dfabe357e7a', '12346', '12346  ', '$2y$10$myS7p3hkS5cDlYVo7CZ7QejarHxvddRZguPkbn3vrFehfPNTQ00Ze', 'Muhammad Renaldi', 'L', 'Banjarmasin', '2014-06-11', 'Anak Kandung', '3', 'Islam', 'Jl.Pangeran no 04  Banjarmasin', '18', '04', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '081245567690', '', 'Harapan Bersama', 'Hamsah', 'Pegawai Negeri Sipil', 'Jl.Pangeran no 04  Banjarmasin', '082345658997', 'Hamidah', 'Ibu Rumah Tangga', 'Jl.Pangeran no 04  Banjarmasin', '081245567650', '-', '-', '-', '2021', 'II.A', 3, 1, 1658825699, 0),
-('62dfac02035d5', '12345', '12345 ', '$2y$10$rLcMiDN6W1rUhYIyjQI34.eVSOBQTyHta5F6x48eTQy9.DyZH1d6.', 'Uchiha Yamato', 'L', 'Banjarmasin', '1998-07-20', 'Anak Kandung', '1', 'Islam', 'Jl. in aja dulu, siapa tau betah', '08', '01', 'Melati', 'Barito Kuala', 'Banjarmasin Timur', '081251898990', '', 'Tadika Mesra', 'Abah', 'Pegawai Swasta', 'Jl Bakti Utama No 10', '085156362232', 'Mama', 'Ibu Rumah Tangga', 'Jl Bakti Utama No 10', '081237412632', 'Abah', 'Jl Bakti Utama No 10', '085156362232', '2022', 'I.B', 3, 1, 1658825730, 0),
-('62dfaceb3b113', '12348', '12348', '$2y$10$Q4lESzkIEQiXRsLUgsVcj.gv8wQ7TIB/uy7JJtDTRvE4n7OCLt2Wu', 'Ririn Afriyani', 'P', 'Banjarmasin', '2015-06-26', 'Anak Kandung', '2', 'Islam', 'Jl. Anggur No 42 Banjarmasin', '17', '04', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '082345456789', '', 'Tadika Mesra', 'Sudarso', 'Pegawai Negeri Sipil', 'Jl. Anggur No 42 Banjarmasin', '081234567898', 'Hartati', 'Ibu Rumah Tangga', 'Jl. Anggur No 42 Banjarmasin', '082345456789', '-', '-', '-', '2022', 'I.A', 3, 1, 1658825963, 0),
-('62dfadb7d8bd3', '12349', '12349', '$2y$10$pH27meStcDB6IKm/uF/00uu5uOJYLjp8ZZlCe2PPWReFgj8qFWzVG', 'Yuli Nur Safitri', 'P', 'Banjarmasin', '2013-06-10', 'Anak Kandung', '1', 'Islam', 'Jl. Anggrek No 15 Banjarmasin', '17', '05', 'Sungai Miai', 'Banjarmasin Utara', 'Banjarmasin Utara', '082345432134', '', 'Tadika Mesra', 'Zakaria', 'Pegawai Negeri Sipil', 'Jl. Anggrek No 15 Banjarmasin', '082345432134', 'Dewi ', 'Ibu Rumah Tangga', 'Jl. Anggrek No 15 Banjarmasin', '082345432134', '-', '-', '-', '2020', 'III.A', 3, 1, 1658826168, 0),
-('62e090232700d', '9999897123', '10001', '$2y$10$mRL1fywh0OsSu/rm7YcdcO/ivoG8prTuLME7PtCjPZQjpc4BYMFAe', 'M Rasyid Ridha', 'L', 'Tanjung', '2007-07-27', 'Anak kandung', '1', 'Islam', 'Jl ini dan itu', '9', '2', 'Jahri Saleh', 'Banjarmasin Utara', 'Banjarmasin', '081212121212', '', 'TK Ceria', 'Ayahku', 'Pegawai Swasta', 'Jl ini dan itu', '081234572132', 'Ibuku', 'Rumah Tangga', 'Jl ini dan itu', '081231253241', 'Ayahku', 'Jl ini dan itu', '081231253241', '2022', 'I.B', 3, 1, 1658884131, 0);
+('62ce5c7ee4a0d', '12345', '12345', '$2y$10$ioZ/YjBH6PgP3EkzU.glr.roeVCSP77lT9Hlru2QOVUGbDI2N0VKa', 'Uchiha Yamato', 'L', 'Banjarmasin', '1998-07-20', 'Anak Kandung', '1', 'Islam', 'Jl. in aja dulu, siapa tau betah', '08', '01', 'Melati', 'Barito Kuala', 'Banjarmasin Timur', '081251898990', '279860932_407170168081950_6545682480426208850_n.jpg', 'Tadika Mesra', 'Abah', 'Pegawai Swasta', 'Jl Bakti Utama No 10', '085156362232', 'Mama', 'Ibu Rumah Tangga', 'Jl Bakti Utama No 10', '081237412632', 'Abah', 'Jl Bakti Utama No 10', '085156362232', '2021', 'I.B', 3, 1, 1657691263, 0);
 
 -- --------------------------------------------------------
 
@@ -570,8 +556,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idUsers`, `username`, `password`, `roleId`, `namaLengkap`, `email`, `noWa`, `isActive`, `foto`) VALUES
-('5f269419c1055', 'admin', '$2y$10$yGds8D96c7Ce/arpaA02SOz9Emj1zJoSEOPPHiO85KQhu3dLIZruq', 1, 'Shinta Permatasari', 'shintapermatasari@gmail.com', '081223231212', 1, ''),
-('62e129b3aa536', 'kepsek', '$2y$10$pH4LFwYzkYmT8smHqv3zpO2hkUc1QpAWCB8c7v4PqbZdAdA03QnLu', 2, 'Febby Febryana', 'kepsek@gmail.com', '081234123123', 1, '63224e95fb803683776e251afdad97bf.jpg');
+('5f269419c1055', 'admin', '$2y$10$yGds8D96c7Ce/arpaA02SOz9Emj1zJoSEOPPHiO85KQhu3dLIZruq', 1, 'Shinta Permatasari', 'shintapermatasari@gmail.com', '081223231212', 1, '');
 
 --
 -- Indexes for dumped tables
@@ -639,6 +624,12 @@ ALTER TABLE `h_walikelas`
   ADD PRIMARY KEY (`idWaliKelas`),
   ADD KEY `idHonorarium` (`idHonorarium`),
   ADD KEY `idPegawai` (`idGuru`);
+
+--
+-- Indexes for table `identitas_sekolah`
+--
+ALTER TABLE `identitas_sekolah`
+  ADD PRIMARY KEY (`idSekolah`);
 
 --
 -- Indexes for table `jadwal_pelajaran`
@@ -714,7 +705,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `akuntan`
 --
 ALTER TABLE `akuntan`
-  MODIFY `idAkuntan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `idAkuntan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `h_pengajar`
@@ -726,19 +717,19 @@ ALTER TABLE `h_pengajar`
 -- AUTO_INCREMENT for table `h_tatausaha`
 --
 ALTER TABLE `h_tatausaha`
-  MODIFY `idTataUsaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idTataUsaha` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `h_walikelas`
 --
 ALTER TABLE `h_walikelas`
-  MODIFY `idWaliKelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idWaliKelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `jenis_ptk`
 --
 ALTER TABLE `jenis_ptk`
-  MODIFY `idJenisPtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idJenisPtk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `kelompok_mapel`
@@ -750,7 +741,7 @@ ALTER TABLE `kelompok_mapel`
 -- AUTO_INCREMENT for table `neraca`
 --
 ALTER TABLE `neraca`
-  MODIFY `idNeraca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idNeraca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `tahunajaran`

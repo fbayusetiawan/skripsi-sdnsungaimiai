@@ -35,9 +35,16 @@ class nilairapor_m extends CI_Model
         return  $this->db->get('kelas')->row();
     }
 
+    public function getSiswaById($Value)
+    {
+        $this->db->select('siswa.*, kelas.namaKelas as namaKelas');
+        $this->db->join('kelas', 'kelas.kodeKelas = siswa.kodeKelas', 'left');
+        $this->db->where('nisn', $Value);
+        return $this->db->get('siswa')->row();
+    }
+
     function getDataById($Value)
     {
-
         $this->db->where($this->pk, $Value);
         return $this->db->get($this->namaTable)->row();
     }

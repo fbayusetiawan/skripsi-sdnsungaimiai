@@ -36,6 +36,7 @@ $kode = $this->uri->segment(4);
                                 <th>Rata2</th>
                                 <!-- <th>Grade</th> -->
                                 <th>Deskripsi</th>
+                                <!-- <th>Aksi</th> -->
                             </tr>
 
                         </thead>
@@ -79,6 +80,14 @@ $kode = $this->uri->segment(4);
 
                                         </div>
                                     </td>
+                                    <!-- <td>
+                                        <div class="btn-group mb-0">
+                                            <a href="<?= base_url($linkin . '/hal4/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" data-toggle="tooltip" title="Pengetahuan"><i class="uil uil-print"></i> Pengetahuan</a>
+                                        </div>
+                                        <div class="btn-group mb-0">
+                                            <a href="<?= base_url($linkin . '/hal5/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" data-toggle="tooltip" title="Keterampilan"><i class="uil uil-print"></i>Keterampilan</a>
+                                        </div>
+                                    </td> -->
 
 
                                 </tr>
