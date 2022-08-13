@@ -51,6 +51,14 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                     </div>
 
                     <div class="form-group mb-3">
+                        <label for="validationCustom01">KKM</label>
+                        <input type="text" class="form-control" value="<?= $row->kkm ?>" name="kkm" id="validationCustom01" required>
+                        <div class="invalid-feedback">
+                            Harus diisi!
+                        </div>
+                    </div>
+
+                    <div class="form-group mb-3">
                         <label for="validationCustom01">Jumlah Jam Mata Pelajaran</label>
                         <input type="text" class="form-control" value="<?= $row->jumlahJam ?>" name="jumlahJam" id="validationCustom01" required>
                         <div class="invalid-feedback">

@@ -8,6 +8,9 @@ ob_start();
 
 <!DOCTYPE html>
 <html>
+<script type="text/javascript">
+    window.print();
+</script>
 
 <head>
     <title>Laporan</title>
@@ -68,7 +71,7 @@ ob_start();
                 <br>
                 <table width='40%' style='float:right'>
                     <tr>
-                        <td>Banjarmasin, <?= tgl_indo($now) ?></p> 
+                        <td>Banjarmasin, <?= tgl_indo($now) ?></p>
 
 
                             Kepala Sekolah,<br><br><br><br>

@@ -64,7 +64,6 @@ class siswa_m extends CI_Model
             'alamatWali' => $this->input->post('alamatWali'),
             'noHpWali' => $this->input->post('noHpWali'),
             'angkatan' => $this->input->post('angkatan'),
-
             'isActive' => $this->input->post('isActive'),
             'roleId' => '3',
             'kodeKelas' => $this->input->post('kodeKelas'),
@@ -75,42 +74,99 @@ class siswa_m extends CI_Model
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Disimpan</div>');
     }
 
-    function update($Value)
+    function update($Value, $foto)
     {
-        $object = [
-            'idSiswa' => uniqid(),
-            'nisn' => $this->input->post('nisn'),
-            'nis' => $this->input->post('nis'),
-            'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'namaSiswa' => $this->input->post('namaSiswa'),
-            'jk' => $this->input->post('jk'),
-            'tempatLahir' => $this->input->post('tempatLahir'),
-            'tanggalLahir' => $this->input->post('tanggalLahir'),
-            'statusKeluarga' => $this->input->post('statusKeluarga'),
-            'anakKe' => $this->input->post('anakKe'),
-            'agama' => $this->input->post('agama'),
-            'alamat' => $this->input->post('alamat'),
-            'rt' => $this->input->post('rt'),
-            'rw' => $this->input->post('rw'),
-            'kelurahan' => $this->input->post('kelurahan'),
-            'kecamatan' => $this->input->post('kecamatan'),
-            'kabupaten' => $this->input->post('kabupaten'),
-            'noTelp' => $this->input->post('noTelp'),
-            'foto' => $this->input->post('foto'),
-            'asalTk' => $this->input->post('asalTk'),
-            'angkatan' => $this->input->post('angkatan'),
-            'isActive' => $this->input->post('isActive'),
-            'roleId' => '3',
-            'kodeKelas' => $this->input->post('kodeKelas'),
-            'dateCreated' => time()
+        if (empty($foto)) {
+            $object = [
+                'nisn' => $this->input->post('nisn'),
+                'nis' => $this->input->post('nis'),
+                'namaSiswa' => $this->input->post('namaSiswa'),
+                'jk' => $this->input->post('jk'),
+                'tempatLahir' => $this->input->post('tempatLahir'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'tanggalLahir' => $this->input->post('tanggalLahir'),
+                'statusKeluarga' => $this->input->post('statusKeluarga'),
+                'anakKe' => $this->input->post('anakKe'),
+                'agama' => $this->input->post('agama'),
+                'alamat' => $this->input->post('alamat'),
+                'rt' => $this->input->post('rt'),
+                'rw' => $this->input->post('rw'),
+                'kelurahan' => $this->input->post('kelurahan'),
+                'kecamatan' => $this->input->post('kecamatan'),
+                'kabupaten' => $this->input->post('kabupaten'),
+                'noTelp' => $this->input->post('noTelp'),
+                'asalTk' => $this->input->post('asalTk'),
+                'angkatan' => $this->input->post('angkatan'),
+                'isActive' => $this->input->post('isActive'),
+                'kodeKelas' => $this->input->post('kodeKelas'),
+            ];
+        } else {
+            $object = [
 
+                'nisn' => $this->input->post('nisn'),
+                'nis' => $this->input->post('nis'),
+                'namaSiswa' => $this->input->post('namaSiswa'),
+                'jk' => $this->input->post('jk'),
+                'tempatLahir' => $this->input->post('tempatLahir'),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+                'tanggalLahir' => $this->input->post('tanggalLahir'),
+                'statusKeluarga' => $this->input->post('statusKeluarga'),
+                'anakKe' => $this->input->post('anakKe'),
+                'agama' => $this->input->post('agama'),
+                'alamat' => $this->input->post('alamat'),
+                'rt' => $this->input->post('rt'),
+                'rw' => $this->input->post('rw'),
+                'kelurahan' => $this->input->post('kelurahan'),
+                'kecamatan' => $this->input->post('kecamatan'),
+                'kabupaten' => $this->input->post('kabupaten'),
+                'noTelp' => $this->input->post('noTelp'),
+                'asalTk' => $this->input->post('asalTk'),
+                'angkatan' => $this->input->post('angkatan'),
+                'isActive' => $this->input->post('isActive'),
+                'kodeKelas' => $this->input->post('kodeKelas'),
+                'foto' => $foto,
 
-        ];
-
+            ];
+        }
         $this->db->where($this->pk, $Value);
         $this->db->update($this->namaTable, $object);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Rubah</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Ubah</div>');
     }
+
+    // function update($Value)
+    // {
+    //     $object = [
+
+    //         'nisn' => $this->input->post('nisn'),
+    //         'nis' => $this->input->post('nis'),
+    //         'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+    //         'namaSiswa' => $this->input->post('namaSiswa'),
+    //         'jk' => $this->input->post('jk'),
+    //         'tempatLahir' => $this->input->post('tempatLahir'),
+    //         'tanggalLahir' => $this->input->post('tanggalLahir'),
+    //         'statusKeluarga' => $this->input->post('statusKeluarga'),
+    //         'anakKe' => $this->input->post('anakKe'),
+    //         'agama' => $this->input->post('agama'),
+    //         'alamat' => $this->input->post('alamat'),
+    //         'rt' => $this->input->post('rt'),
+    //         'rw' => $this->input->post('rw'),
+    //         'kelurahan' => $this->input->post('kelurahan'),
+    //         'kecamatan' => $this->input->post('kecamatan'),
+    //         'kabupaten' => $this->input->post('kabupaten'),
+    //         'noTelp' => $this->input->post('noTelp'),
+    //         'foto' => $this->input->post('foto'),
+    //         'asalTk' => $this->input->post('asalTk'),
+    //         'angkatan' => $this->input->post('angkatan'),
+    //         'isActive' => $this->input->post('isActive'),
+    //         'kodeKelas' => $this->input->post('kodeKelas'),
+
+
+    //     ];
+
+    //     $this->db->where($this->pk, $Value);
+    //     $this->db->update($this->namaTable, $object);
+    //     $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Rubah</div>');
+    // }
 
     function update1($Value)
     {

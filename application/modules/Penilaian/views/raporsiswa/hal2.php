@@ -5,7 +5,9 @@ $now = date('Y-m-d');
 ob_start();
 ?>
 
-
+<script type="text/javascript">
+    window.print();
+</script>
 <!DOCTYPE html>
 <html>
 
@@ -81,7 +83,7 @@ ob_start();
             <td>10.</td>
             <td width='190px'>Sekolah Asal</td>
             <td width='10px'> : </td>
-            <td> <?= $row->asalSd ?></td>
+            <td> <?= $row->asalTk ?></td>
         </tr>
         <!-- <tr>
             <td>11.</td>
@@ -172,7 +174,9 @@ ob_start();
     <br><br><br>
     <table width='40%' style='float:right'>
         <tr>
-            <td>Muara Uya, <?= tgl_indo($now) ?> <br>
+            <td>Banjarmasin, <?= tgl_indo($now) ?></p>
+
+
                 Kepala Sekolah,<br><br><br><br>
 
 

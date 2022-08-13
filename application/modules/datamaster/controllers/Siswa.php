@@ -61,7 +61,7 @@ class siswa extends CI_Controller
     function editAction()
     {
         $id = $this->uri->segment(4);
-        $this->siswa_m->update($id);
+        $this->siswa_m->update($id, $this->upload_foto());
         redirect('datamaster/' . $this->vn);
     }
 
@@ -81,33 +81,14 @@ class siswa extends CI_Controller
 
     function upload_foto()
     {
-        $config['upload_path']          = './assets/images/profil';
-        $config['allowed_types']        = 'jpg|png';
-        $config['max_size']             = 1024; // imb
+        $config['upload_path']          = './upload/';
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 5024; // imb
         $this->load->library('upload', $config);
         // proses upload
         $this->upload->do_upload('foto');
         $upload = $this->upload->data();
         return $upload['file_name'];
-    }
-
-    private function _uploadImage()
-    {
-        $config['upload_path']          = './upload/';
-        $config['allowed_types']        = 'gif|jpg|png';
-        $config['file_name']            = $this->nisn;
-        $config['overwrite']            = true;
-        $config['max_size']             = 1024; // 1MB
-        // $config['max_width']            = 1024;
-        // $config['max_height']           = 768;
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('foto')) {
-            return $this->upload->data("file_name");
-        }
-
-        return "default.jpg";
     }
 }
 

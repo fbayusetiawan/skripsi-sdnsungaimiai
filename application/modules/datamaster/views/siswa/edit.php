@@ -18,7 +18,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
             <div class="card">
                 <div class="card-body">
                     <div class="text-center mt-3">
-                        <img src="<?= base_url(); ?>assets/images/profil/<?= $row->foto ?>" alt="" class="avatar-lg rounded-circle" />
+                        <img src="<?= base_url('upload/' . $row->foto) ?>" alt="" class="avatar-lg rounded-circle" />
                         <h5 class="mt-2 mb-0"><?= $row->namaSiswa ?></h5>
                         <h6 class="text-muted font-weight-normal mt-2 mb-0">NISN : <?= $row->nisn ?>
                         </h6>
@@ -87,7 +87,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
                             <h5 class="mt-1"></h5>
 
-                            <form class="row g-4 needs-validation" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" method="post">
+                            <form class="row g-4 needs-validation" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" enctype="multipart/form-data" method="post">
 
                                 <div class="col-md-3 mt-3">
                                     <label for="inputAddress" class="form-label">NISN</label>
@@ -97,10 +97,10 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                                     <label for="inputAddress" class="form-label">NIS</label>
                                     <input type="text" class="form-control" id="inputAddress" name="nis" value="<?= $row->nis ?> ">
                                 </div>
-                                <!-- <div class="col-md-6 mt-3">
+                                <div class="col-md-6 mt-3">
                                     <label for="inputAddress" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password" id="inputAddress" value="">
-                                </div> -->
+                                    <input type="password" class="form-control" name="password" id="inputAddress" value="" required>
+                                </div>
                                 <div class="col-md-6 mt-3">
                                     <label for="inputAddress" class="form-label">Nama Lengkap</label>
                                     <input type="text" class="form-control" id="inputAddress" name="namaSiswa" value="<?= $row->namaSiswa ?>">

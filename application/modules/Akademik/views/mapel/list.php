@@ -25,6 +25,7 @@ $no = '1';
                             <th>Nama Mapel</th>
                             <th>Kelompok</th>
                             <th>Guru Pengampu</th>
+                            <th>KKM</th>
                             <th>Jumlah Jam</th>
 
                             <th>Aksi</th>
@@ -38,6 +39,7 @@ $no = '1';
                                 <td><?= $row->namaMapel ?></td>
                                 <td><?= $row->namaKelompokMapel ?></td>
                                 <td><?= $row->namaGuru ?></td>
+                                <td><?= $row->kkm ?></td>
                                 <td>
                                     <center><?= $row->jumlahJam ?></center>
                                 </td>

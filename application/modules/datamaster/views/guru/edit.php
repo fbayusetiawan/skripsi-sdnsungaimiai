@@ -67,7 +67,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <div class="tab-pane fade show active" id="pills-activity" role="tabpanel" aria-labelledby="pills-activity-tab">
                             <h5 class="mt-1"></h5>
 
-                            <form class="row g-4 needs-validation" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" id="mydata" method="post">
+                            <form class="row g-4 needs-validation" enctype="multipart/form-data" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" id="mydata" method="post">
 
                                 <div class="col-md-6 mt-3">
                                     <label for="inputAddress" class="form-label">NIP</label>
@@ -77,10 +77,6 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                                     <label for="inputAddress" class="form-label">NIK</label>
                                     <input type="text" class="form-control" name="nik" value="<?= $row->nik ?>" required>
                                 </div>
-                                <!-- <div class="col-md-6 mt-3">
-                                    <label for="inputAddress" class="form-label">Password</label>
-                                    <input type="password" class="form-control" name="password" value="" required>
-                                </div> -->
                                 <div class="col-md-6 mt-3">
                                     <label for="inputAddress" class="form-label">Nama Lengkap</label>
                                     <input type="text" class="form-control" name="namaGuru" value="<?= $row->namaGuru ?>" required>
@@ -202,6 +198,11 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                                     <div class="invalid-feedback">
                                         Harus diisi!
                                     </div>
+                                </div>
+
+                                <div class="col-md-6 mt-3">
+                                    <label for="validationCustom01" class="form-label">Upload Foto</label>
+                                    <input type="file" class="form-control" name="foto">
                                 </div>
 
                                 <button class="btn btn-primary col-md-12 mt-3" type="submit">Simpan</button>

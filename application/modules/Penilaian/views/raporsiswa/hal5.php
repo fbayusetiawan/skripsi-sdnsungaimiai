@@ -69,7 +69,7 @@ ob_start();
             <tr>
                 <td align=center><?= $no++ ?></td>
                 <td width='160px'> <?= $ket->namaMapel ?></td>
-                <td align=center>77</td>
+                <td align=center><?= $ket->kkm ?></td>
                 <td align=center><?= $ket->rerata  ?></td>
 
                 <td align=center><?= $ket->deskripsi ?></td>

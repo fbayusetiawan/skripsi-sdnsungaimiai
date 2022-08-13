@@ -57,8 +57,7 @@ class Raporsiswa_m extends CI_Model
 
     public function getKepsek()
     {
-        $this->db->where('tugasTambahan', 'Kepala Sekolah');
-
+        $this->db->where('idJenisPtk', '1');
         return $this->db->get('guru')->row();
     }
 

@@ -93,14 +93,14 @@ class Raporsiswa extends CI_Controller
         $data['data'] = $this->db->get('identitas_sekolah')->row();
         $data['guru'] = $this->primaryModel->getKepsek();
         $this->db->where('nisn', $id);
-        $this->db->where('nilai_capaianbelajar.kodeTahun', $tahun);
+        // $this->db->where('nilai_capaianbelajar.kodeTahun', $tahun);
 
-        $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_capaianbelajar.kodeTahun', 'left');
+        // $this->db->join('tahun_akademik', 'tahun_akademik.kodeTahun = nilai_capaianbelajar.kodeTahun', 'left');
 
-        $data['c'] = $this->db->get('nilai_capaianbelajar')->row();
+        // $data['c'] = $this->db->get('nilai_capaianbelajar')->row();
 
-        $this->load->library('Mypdf');
-        $this->mypdf->generatehal2($this->vn . '/hal2', $data);
+        // $this->load->library('Mypdf');
+        $this->load->view($this->vn . '/hal2', $data);
     }
 
     function hal3()

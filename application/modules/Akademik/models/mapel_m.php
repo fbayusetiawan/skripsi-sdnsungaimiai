@@ -42,6 +42,7 @@ class mapel_m extends CI_Model
             'nip' => htmlspecialchars($this->input->post('nip', TRUE)),
             'namaMapel' => htmlspecialchars($this->input->post('namaMapel', TRUE)),
             'jumlahJam' => htmlspecialchars($this->input->post('jumlahJam', TRUE)),
+            'kkm' => htmlspecialchars($this->input->post('kkm', TRUE)),
             'isActive' => htmlspecialchars($this->input->post('isActive', TRUE))
 
         ];
@@ -58,6 +59,7 @@ class mapel_m extends CI_Model
             'nip' => htmlspecialchars($this->input->post('nip', TRUE)),
             'namaMapel' => htmlspecialchars($this->input->post('namaMapel', TRUE)),
             'jumlahJam' => htmlspecialchars($this->input->post('jumlahJam', TRUE)),
+            'kkm' => htmlspecialchars($this->input->post('kkm', TRUE)),
             'isActive' => htmlspecialchars($this->input->post('isActive', TRUE))
 
         ];

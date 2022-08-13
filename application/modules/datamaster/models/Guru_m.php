@@ -74,36 +74,59 @@ class guru_m extends CI_Model
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Jabatan Berhasil Disimpan</div>');
     }
 
-    function update($Value)
+    function update($Value, $foto)
     {
-        $object = [
+        if (empty($foto)) {
+            $object = [
+                'nip' => htmlspecialchars($this->input->post('nip', TRUE)),
+                'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
+                'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
+                'namaGuru' => htmlspecialchars($this->input->post('namaGuru', TRUE)),
+                'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
+                'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
+                'tanggalLahir' => htmlspecialchars($this->input->post('tanggalLahir', TRUE)),
+                'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
+                'alamat' => htmlspecialchars($this->input->post('alamat', TRUE)),
+                'rt' => htmlspecialchars($this->input->post('rt', TRUE)),
+                'rw' => htmlspecialchars($this->input->post('rw', TRUE)),
+                'kelurahan' => htmlspecialchars($this->input->post('kelurahan', TRUE)),
+                'kecamatan' => htmlspecialchars($this->input->post('kecamatan', TRUE)),
+                'kabupaten' => htmlspecialchars($this->input->post('kabupaten', TRUE)),
+                'noTelp' => htmlspecialchars($this->input->post('noTelp', TRUE)),
+                'email' => htmlspecialchars($this->input->post('email', TRUE)),
+                'tugasTambahan' => htmlspecialchars($this->input->post('tugasTambahan', TRUE)),
+                'idJenisPtk' => htmlspecialchars($this->input->post('idJenisPtk', TRUE)),
+                'statusGuru' => htmlspecialchars($this->input->post('statusGuru', TRUE)),
+            ];
+        } else {
+            $object = [
 
-            'nip' => htmlspecialchars($this->input->post('nip', TRUE)),
-            'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
-            'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
-            'namaGuru' => htmlspecialchars($this->input->post('namaGuru', TRUE)),
-            'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
-            'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
-            'tanggalLahir' => htmlspecialchars($this->input->post('tanggalLahir', TRUE)),
-            'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
-            'alamat' => htmlspecialchars($this->input->post('alamat', TRUE)),
-            'rt' => htmlspecialchars($this->input->post('rt', TRUE)),
-            'rw' => htmlspecialchars($this->input->post('rw', TRUE)),
-            'kelurahan' => htmlspecialchars($this->input->post('kelurahan', TRUE)),
-            'kecamatan' => htmlspecialchars($this->input->post('kecamatan', TRUE)),
-            'kabupaten' => htmlspecialchars($this->input->post('kabupaten', TRUE)),
-            'noTelp' => htmlspecialchars($this->input->post('noTelp', TRUE)),
-            'email' => htmlspecialchars($this->input->post('email', TRUE)),
-            'tugasTambahan' => htmlspecialchars($this->input->post('tugasTambahan', TRUE)),
-            'idJenisPtk' => htmlspecialchars($this->input->post('idJenisPtk', TRUE)),
-            'foto' => 'default.jpg',
-            'statusGuru' => htmlspecialchars($this->input->post('statusGuru', TRUE)),
-            'dateCreated' => time()
+                'nip' => htmlspecialchars($this->input->post('nip', TRUE)),
+                'password' => password_hash($this->input->post('password', TRUE), PASSWORD_DEFAULT),
+                'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
+                'namaGuru' => htmlspecialchars($this->input->post('namaGuru', TRUE)),
+                'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
+                'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
+                'tanggalLahir' => htmlspecialchars($this->input->post('tanggalLahir', TRUE)),
+                'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
+                'alamat' => htmlspecialchars($this->input->post('alamat', TRUE)),
+                'rt' => htmlspecialchars($this->input->post('rt', TRUE)),
+                'rw' => htmlspecialchars($this->input->post('rw', TRUE)),
+                'kelurahan' => htmlspecialchars($this->input->post('kelurahan', TRUE)),
+                'kecamatan' => htmlspecialchars($this->input->post('kecamatan', TRUE)),
+                'kabupaten' => htmlspecialchars($this->input->post('kabupaten', TRUE)),
+                'noTelp' => htmlspecialchars($this->input->post('noTelp', TRUE)),
+                'email' => htmlspecialchars($this->input->post('email', TRUE)),
+                'tugasTambahan' => htmlspecialchars($this->input->post('tugasTambahan', TRUE)),
+                'idJenisPtk' => htmlspecialchars($this->input->post('idJenisPtk', TRUE)),
+                'statusGuru' => htmlspecialchars($this->input->post('statusGuru', TRUE)),
+                'foto' => $foto,
 
-        ];
+            ];
+        }
         $this->db->where($this->pk, $Value);
         $this->db->update($this->namaTable, $object);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Rubah</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Ubah</div>');
     }
 
     function delete($Value)

@@ -46,17 +46,17 @@ $kode = $this->uri->segment(4);
                                         <div class="btn-group mb-0">
                                             <a href="<?= base_url($linkin . '/hal1/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" target="_blank" data-toggle="tooltip" title="Hal 1"><i class="uil uil-print"></i> Hal 1</a>
                                         </div>
-                                        <!-- <div class="btn-group mb-0">
+                                        <div class="btn-group mb-0">
                                             <a href="<?= base_url($linkin . '/hal2/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" target="_blank" data-toggle="tooltip" title="Hal 2"><i class="uil uil-print"></i> Hal 2</a>
-                                        </div> -->
+                                        </div>
                                         <!-- <div class="btn-group mb-0">
                                             <a href="<?= base_url($linkin . '/hal3/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" data-toggle="tooltip" title="Hal 3"><i class="uil uil-print"></i> Hal 3</a>
                                         </div> -->
                                         <div class="btn-group mb-0">
-                                            <a href="<?= base_url($linkin . '/hal4/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" target="_blank" data-toggle="tooltip" title="Hal 2"><i class="uil uil-print"></i> Hal 2</a>
+                                            <a href="<?= base_url($linkin . '/hal4/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" target="_blank" data-toggle="tooltip" title="Hal 2"><i class="uil uil-print"></i> Hal 3</a>
                                         </div>
                                         <div class="btn-group mb-0">
-                                            <a href="<?= base_url($linkin . '/hal5/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" target="_blank" data-toggle="tooltip" title="Hal 3"><i class="uil uil-print"></i> Hal 3</a>
+                                            <a href="<?= base_url($linkin . '/hal5/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" target="_blank" data-toggle="tooltip" title="Hal 3"><i class="uil uil-print"></i> Hal 4</a>
                                         </div>
                                         <!-- <div class="btn-group mb-0">
                                             <a href="<?= base_url($linkin . '/hal6/' . $row->nisn . '/' . $tahun) ?>" class="btn btn-success btn-sm" data-toggle="tooltip" title="Hal 6"><i class="uil uil-print"></i> Hal 4</a>

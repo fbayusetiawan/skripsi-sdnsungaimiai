@@ -194,10 +194,6 @@ $hasilTgl = date('Y-m-d', $kurangTgl);
                                     <li>
                                         <a href="#m_jadwalpelajaran" data-toggle="modal">Jadwal Pelajaran</a>
                                     </li>
-                                    <li>
-                                        <a href="<?= base_url('penilaian/cetakrapor') ?>">E-Rapor</a>
-                                    </li>
-
                                 </ul>
                             </li>
                         </ul>

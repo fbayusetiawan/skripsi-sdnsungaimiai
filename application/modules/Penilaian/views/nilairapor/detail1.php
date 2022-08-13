@@ -73,7 +73,7 @@ $kode = $this->uri->segment(4);
 
                                             <div class="col-auto">
                                                 <div class="input-group">
-                                                    <textarea class="form-control" rows="4" id="deskripsi<?= $row->nisn ?>"><?= $dkk ?></textarea>
+                                                    <textarea class="form-control" rows="4" id="deskripsi<?= $row->nisn ?>" disabled><?= $dkk ?></textarea>
                                                 </div>
                                             </div>
 

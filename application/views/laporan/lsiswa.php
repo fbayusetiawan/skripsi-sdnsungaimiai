@@ -5,7 +5,9 @@ $now = date('Y-m-d');
 ob_start();
 ?>
 
-
+<script type="text/javascript">
+    window.print();
+</script>
 <!DOCTYPE html>
 <html>
 
